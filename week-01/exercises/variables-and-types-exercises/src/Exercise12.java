@@ -5,7 +5,7 @@ public class Exercise12 {
         // Don't change the assignment to mayBeCookieMonster.
         boolean likesCookies = true;
         boolean isBlue = false;
-
+        isBlue = true;
         boolean mayBeCookieMonster = likesCookies && isBlue;
 
         System.out.println("Cookie Monster?: " + mayBeCookieMonster);

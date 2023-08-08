@@ -5,6 +5,9 @@ public class Exercise02 {
         // 2. Run the code. (Be sure there are no errors.)
         int numberOfApartments = 73;
 
+        int unitCount = numberOfApartments;
         System.out.println(numberOfApartments);
+
+        // Are there any errors?
     }
 }
