@@ -17,7 +17,7 @@ public class Exercise25 {
 
         String sentence = "The " + adjective1 + " " + noun1 + " approached the " +
                 adjective2 + " " + noun2 + " and gave a " + adjective3 + " " + noise1 + ".";
-        
+
         System.out.println(sentence);
 
         // 3. Use string concatenation to build a silly sentence.
