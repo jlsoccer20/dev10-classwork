@@ -12,8 +12,9 @@ public class Exercise13 {
         //hasDiscount = 1; // ??
 
         // hasDiscount is true if purchaseQuantity is greater than or equal to 6 OR hasCoupon is true.
-/*
-        hasDiscount = purchaseQuantity >= 6 || hasCoupon = true;
+        int minimum = 6;
+
+        hasDiscount = purchaseQuantity >= minimum || hasCoupon == true;
 
         // 3. Print the result.
         System.out.println(hasDiscount);
@@ -21,7 +22,5 @@ public class Exercise13 {
         // 4. Change the values of purchaseQuantity and hasCoupon to get both true and false results for hasDiscount
         // in different ways.
 
-
- */
     }
 }
