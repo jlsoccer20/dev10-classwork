@@ -8,8 +8,12 @@ public class Exercise24 {
                 + "Maa!";
 
         // 1. Use the replace method to replace all occurrences of "a" with "o" from knockKnock.
+        String grammarlyGotYou = knockKnock.replace("a","o");
+
         // 2. Assign the result to a new variable.
+
         // 3. Print it.
+        System.out.println(grammarlyGotYou);
 
         // Expected Output:
         // Knock, knock.
