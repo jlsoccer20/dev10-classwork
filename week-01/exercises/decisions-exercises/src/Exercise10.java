@@ -21,5 +21,27 @@ public class Exercise10 {
         // If a lbs/zone combo does not exist, print a warning message for the user.
 
         Scanner console = new Scanner(System.in);
+
+        System.out.print("Enter parcel weight (1 to 5): ");
+        int weight = Integer.parseInt(console.nextLine());
+
+        System.out.print("Enter Zone you wish to ship to (1, 2, or 3): ");
+        int zone = Integer.parseInt(console.nextLine());
+
+        if ((weight < 1 || weight > 5) || (zone < 1 || zone > 3)){
+            System.out.println("out of range!");
+        }
+
+        switch (zone){
+            case 1, 2 ->{
+                switch(weight){
+
+                }
+            }
+            case 3 ->{
+
+            }
+        }
+
     }
 }

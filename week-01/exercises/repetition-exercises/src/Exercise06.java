@@ -8,5 +8,11 @@ public class Exercise06 {
         for (int i = 3; i < 213; i += 13) {
             System.out.println(i);
         }
+
+        int j = 3;
+        while (j < 213){
+            System.out.println(j);
+            j += 13;
+        }
     }
 }

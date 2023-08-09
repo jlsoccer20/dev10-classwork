@@ -18,5 +18,10 @@ public class Exercise12 {
 
         // 1. Add decisions statements to determine if first, second, and third are in order.
         // 2. Print messages for both ordered and unordered cases.
+
+        if(first < second){
+
+        }
     }
+
 }
