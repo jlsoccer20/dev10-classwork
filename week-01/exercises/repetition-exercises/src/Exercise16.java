@@ -22,5 +22,26 @@ public class Exercise16 {
         // (2X2)
         // **
         // **
+
+        final int ROWS = 8; // constants
+        final int COLUMNS = 5; // constants
+        String border = "*";
+        String inner = "#";
+
+        for(int row = 0; row < ROWS; row++){
+
+                for (int col = 0; col < COLUMNS; col++) {
+
+                    // row == 0 is going to draw a border symbol (top line)
+                    // col == 0 is left edge, draw border (left side)
+                    //
+                    if (col == 0 || col == COLUMNS -1 || row == 0 || row == ROWS - 1) {
+                        System.out.print(border);
+                    } else {
+                        System.out.print(inner);
+                    }
+                }
+            System.out.println();
+        }
     }
 }
