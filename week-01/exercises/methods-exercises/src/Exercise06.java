@@ -1,6 +1,13 @@
 public class Exercise06 {
 
     // 1. Create a method.
+    public static boolean isBetween(int first, int second, int third){
+        if (second < first && first < third){
+            return true;
+        } else{
+            return false;
+        }
+    }
     // Name: isBetween
     // Inputs: int, int, int
     // Output: boolean
@@ -9,5 +16,7 @@ public class Exercise06 {
 
     public static void main(String[] args) {
         // 2. Call your method in various ways to test it here.
+        System.out.println(isBetween(5,1,9)); // true
+        System.out.println(isBetween(1,5,9)); // false
     }
 }
