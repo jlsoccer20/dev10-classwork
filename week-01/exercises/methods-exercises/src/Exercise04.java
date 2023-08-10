@@ -19,16 +19,31 @@ public class Exercise04 {
         String vowels = "aeiou";
         String loweredWord = value.toLowerCase();
 
-        for (int index = 0; index < loweredWord.length(); index++){
+        for (int index = 0; index < loweredWord.length(); index++) {
             char c = loweredWord.charAt(index);
-            if (vowels.contains(String.valueOf(c))){
+            if (vowels.contains(String.valueOf(c))) {
                 return c;
             }
         }
 
         // handle cases where a vowel is not found
         return 0;
+    }
+
+    /*
+        // Class Corbin March Solution
+     public static char getFirstVowel(String value){
+        String vowels = "aeiouAEIOU";
+        for(int i = 0; i < value.length();i++){
+            char c = value.charAt(i);
+            if(vowels.indexOf(c) >=0){
+                return c;
+            }
+        }
+     }
+     */
 /*
+
         // Kachew
         if (value.isEmpty())
             return 0;
@@ -52,15 +67,4 @@ public class Exercise04 {
         } while {
         }
         */
-
-    // check for vowels
-    //if (value.isEmpty()){
-    //    return 0;
-
-    }
-    //return value.charAt(0);
 }
-
-
-//String vowels = "aeiou";
-//        return vowels.charAt(index)

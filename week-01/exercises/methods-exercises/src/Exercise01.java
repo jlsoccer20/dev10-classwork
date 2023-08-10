@@ -18,8 +18,12 @@ public class Exercise01 {
 
     }
 
+    // get a String output, no parameters
     public static String getRandomCompliment() {
 
+        // alternate solution
+        //Random random = new Random();
+        //switch(random.nextInt(10)){
         switch ((int) (Math.random() * 10)) {
             case 0:
                 return "Your hard work is inspiring.";

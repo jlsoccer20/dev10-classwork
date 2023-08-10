@@ -2,11 +2,17 @@ public class Exercise06 {
 
     // 1. Create a method.
     public static boolean isBetween(int first, int second, int third){
-        if (second < first && first < third){
+        if (second < first && first < third){ // between second and third
             return true;
-        } else{
-            return false;
+        } else if (third < first && first < second) { // between second and third, reversed
+                return true;
+        } else {
+                return false;
         }
+
+
+        // alternative solution
+        //return second < first && first < third;
     }
     // Name: isBetween
     // Inputs: int, int, int
