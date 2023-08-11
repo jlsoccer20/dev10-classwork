@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class Exercise12 {
 
     // 1. Create a method.
@@ -10,6 +12,19 @@ public class Exercise12 {
     // See the readRequiredString implementation in the methods lesson.
     // You can definitely improve it. Make sure you don't allow blank input. Checking the length() is not enough.
 
+    public static String readRequiredString(String prompt){
+        Scanner console = new Scanner(System.in);
+        //System.out.print(prompt);
+        String input;
+        do {
+            System.out.print(prompt);
+            input = console.nextLine();
+            if (input.isBlank()){
+                System.out.println("Error: Please enter an input.");
+            }
+        } while (input.isBlank());
+        return input;
+    }
     // 2. Create a method.
     // Name: printNounPhrase
     // Inputs: none
@@ -18,10 +33,16 @@ public class Exercise12 {
     // Internally, prompts a user for an adjective and a noun with readRequiredString.
     // Concatenates adjective and noun and prints it to the console.
 
+    public static void printNounPhrase() {
+        String adjective = readRequiredString("Please enter an adjective: ");
+        String noun = readRequiredString("Please enter a noun: ");
+        // %n for new line
+        System.out.printf("Your phrase was: %s %s!%n", adjective, noun);
+    }
     public static void main(String[] args) {
         // 3. Uncomment the code below and confirm it works.
-        // printNounPhrase();
-        // printNounPhrase();
-        // printNounPhrase();
+        printNounPhrase();
+        printNounPhrase();
+        printNounPhrase();
     }
 }
