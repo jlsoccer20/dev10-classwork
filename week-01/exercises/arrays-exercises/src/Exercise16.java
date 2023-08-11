@@ -11,6 +11,7 @@ public class Exercise16 {
         // Its elements are guaranteed to be sorted ascending.
         // 1. Create a new int[] with capacity for all elements from `one` and `two`.
         // 2. "Merge" elements from `one` and `two` into the new array so that its values are sorted.
+        int[] result = new int[one.length + two.length];
 
          /* Pseudocode:
          Create an integer index for `one`, `two`, and the result array, all starting at 0.
@@ -21,6 +22,28 @@ public class Exercise16 {
            if oneIndex >= one.length, there are no `one` elements remaining so use elements from two
            if twoIndex >= two.length, there are no `two` elements remaining so use elements from one
           */
+        int oneIndex = 0;
+        int twoIndex = 0;
+        for (int i = 0; i < result.length; i++){
+            if (oneIndex >= one.length){
+                result[i] = two[twoIndex];
+                twoIndex++;
+            } else if (twoIndex >= two.length){
+                result[i] = one[oneIndex];
+                oneIndex++;
+            } else if (one[oneIndex] <= two[twoIndex]){
+                result[i] = one[oneIndex];
+                oneIndex++;
+            } else if (two[twoIndex] < one[oneIndex]){
+                result[i] = two[twoIndex];
+                twoIndex++;
+            }
+        }
+        for(int i = 0; i < result.length; i++){
+            System.out.println(result[i]);
+        }
+
+
     }
 
     public static int[] makeRandomAscendingArray() {
