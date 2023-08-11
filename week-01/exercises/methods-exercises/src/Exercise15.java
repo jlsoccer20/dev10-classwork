@@ -1,4 +1,8 @@
 public class Exercise15 {
+
+    //for(int i = 0)
+
+
     /* FIZZ BUZZ
 
     Historically, the Fizz Buzz (https://en.wikipedia.org/wiki/Fizz_buzz) problem was used in programming interviews.

@@ -1,6 +1,10 @@
 public class Exercise08 {
 
     // 1. Create a method.
+    public static String getRandomFruit(){
+        String randomFruit = "apple banana orange ananas peach";
+        return randomFruit;
+    }
     // Name: getRandomFruit
     // Inputs: none
     // Output: String
