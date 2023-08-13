@@ -43,19 +43,19 @@ public class Hotel {
 
                 // 1. View Capsules
 
-                // Wish to display 10 capsules...
+                // Wish to display +/- 5 capsules...
                 displayCapsules(capsules);
 
                 System.out.println("Which Capsule number would you like to see?\nPlease enter a number here: ");
 
                 String userInputCapsuleNumber = console.nextLine();
-                int desiredCapsuleNumber = Integer.parseInt(userInputCapsuleNumber);
+                int desiredCapsuleNumber = Integer.parseInt(userInputCapsuleNumber) -1;
 
                 if (capsules[desiredCapsuleNumber] == null){
-                    System.out.printf("Capsule %s is empty!\n", desiredCapsuleNumber);
+                    System.out.printf("Capsule %s is empty!\n", userInputCapsuleNumber);
 
                 } else {
-                    System.out.printf("Capsule %s contains guest name: %s.\n", desiredCapsuleNumber,capsules[desiredCapsuleNumber]);
+                    System.out.printf("Capsule %s contains guest name: %s.\n", userInputCapsuleNumber,capsules[desiredCapsuleNumber]);
                 }
 
             } else if (input.equals("2")) {
@@ -65,20 +65,20 @@ public class Hotel {
                 System.out.println("Please enter a guest name to check-in: ");
                 String userInputGuestName = console.nextLine();
 
-                System.out.println("Please enter a Capsule number to check into: ");
+                System.out.println("Please enter a Capsule number to check into (this will check-out any current guests!!!) : ");
                 String capsuleNumberCheckInString = console.nextLine();
-                int capsuleNumberCheckIn = Integer.parseInt(capsuleNumberCheckInString);
+                int capsuleNumberCheckIn = Integer.parseInt(capsuleNumberCheckInString) -1;
 
                 capsules[capsuleNumberCheckIn] = userInputGuestName;
 
-                System.out.printf("%s has checked in to Capsule %s!\n", userInputGuestName, capsuleNumberCheckIn);
+                System.out.printf("%s has checked in to Capsule %s!\n", userInputGuestName, capsuleNumberCheckInString);
                 //System.out.printf("Capsule %s contains guest name: %s\n", capsuleNumberCheckIn,capsules[capsuleNumberCheckIn]);
 
             } else if (input.equals("3")){
                 System.out.println("Check-out guest from capsule number: ");
                 String capsuleNumberCheckOutString = console.nextLine();
 
-                int capsuleNumberCheckOutInt = Integer.parseInt(capsuleNumberCheckOutString);
+                int capsuleNumberCheckOutInt = Integer.parseInt(capsuleNumberCheckOutString) -1;
 
 
                 // Validate answer
@@ -104,6 +104,8 @@ public class Hotel {
                     if (exitCapsuleHotel.equals("y")){
                         System.out.println("Thank you for visiting the Capsule Hotel. Goodbye!");
                         break;
+                    } else if (exitCapsuleHotel.equals("n")){
+                        input = "1";
                     }
 
             } else {
@@ -191,8 +193,10 @@ public class Hotel {
     }
 
          */
-    }
 
+    //static void checkInGuest(Scanner console, String[] capsules){
+
+    }
     static void displayCapsules(String[] capsules){
         System.out.println("Guests");
         for (int i = 0; i < capsules.length; i++){
