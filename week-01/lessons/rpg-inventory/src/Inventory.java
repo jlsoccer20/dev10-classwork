@@ -6,9 +6,13 @@ public class Inventory {
         // show intro
         System.out.println("Welcome to RPG Inventory");
 
+        // create an array of 8 elements (8 items in our backpack)
         String[] backpack = new String[8];
+        // take user input
         Scanner console = new Scanner(System.in);
-        // loop menu
+
+        // loop menu - do while
+        // create "input"
         String input;
         do {
             System.out.println("Main Menu");
@@ -16,13 +20,17 @@ public class Inventory {
             System.out.println("2. Display Backpack");
             System.out.println("3. Exit");
 
+            //Prompt user to select an option
             System.out.print("Select [1-3]:");
+            // call "input"
             input = console.nextLine();
 
             if (input.equals("1")) {
-                addItem(console, backpack);
+                System.out.println("Add an item");
+                //addItem(console, backpack);
             } else if (input.equals("2")) {
-                displayBackpack(backpack);
+                System.out.println("Display the backpack");
+                //displayBackpack(backpack);
             } else if (input.equals("3")) {
                 System.out.println("Goodbye");
             } else {
@@ -30,6 +38,11 @@ public class Inventory {
             }
 
         } while (!input.equals("3"));
+
+        // add item
+        // show all items
+        // exit
+        // goodbye message
 
     }
 
