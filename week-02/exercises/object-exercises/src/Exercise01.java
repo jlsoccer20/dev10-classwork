@@ -18,6 +18,7 @@ public class Exercise01 {
 
         Musician rollingStones = new Musician("Mick Jagger", 50);
 
+        Musician grouper = new Musician("Grouper",10);
 
         System.out.println(rollingStones.getName());
         System.out.println(rollingStones.getClass());

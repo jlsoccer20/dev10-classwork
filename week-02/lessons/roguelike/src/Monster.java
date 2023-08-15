@@ -1,14 +1,12 @@
-public class Hero {
+public class Monster {
 
-    private String name;
-    private char symbol = '@';
+    private String name = "Corbin";
+    private char symbol = 'C';
     private int x;
     private int y;
 
     // Create a hero with a name and an initial position.
-    public Hero(String name, char symbol, int x, int y) {
-        this.name = name;
-        this.symbol = symbol;
+    public Monster(int x, int y) {
         this.x = x;
         this.y = y;
     }
@@ -47,4 +45,3 @@ public class Hero {
         y++;
     }
 }
-
