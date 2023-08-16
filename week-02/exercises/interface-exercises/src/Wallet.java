@@ -8,6 +8,8 @@ public class Wallet implements MoneyStorage {
     private double balance;
     private String description;
 
+    // Constructors
+    // I cannot have a Wallet without the following:
     public Wallet(double startingBalance, String description) {
         this.balance = startingBalance;
         this.description = description;

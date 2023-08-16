@@ -5,7 +5,9 @@ public interface MoneyStorage {
     /**
      * @return the current balance
      */
+    //If you are a MoneyStorage, you must have a method getBalance() and return a double
     double getBalance();
+
 
     /**
      * @return a description of the MoneyStorage

@@ -5,7 +5,7 @@
  */
 public class Mortgage implements MoneyStorage {
 
-    private double balance;
+    private double balance; // when we make an instance of money storage, we will remember what our balance is
     private String accountNumber;
 
     public Mortgage(double startingBalance, String accountNumber) {
@@ -23,6 +23,7 @@ public class Mortgage implements MoneyStorage {
         return String.format("Mortgage #%s", accountNumber);
     }
 
+    //not being called
     public String getAccountNumber() {
         return accountNumber;
     }
@@ -41,4 +42,6 @@ public class Mortgage implements MoneyStorage {
         // can't withdraw from a mortgage
         return 0;
     }
+
+
 }
