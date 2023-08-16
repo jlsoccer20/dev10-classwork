@@ -3,9 +3,9 @@
 1. Add a new class to the project named `Vault`. DONE
 2. `Vault` must implement `MoneyStorage`. DONE
 3. Complete the implementation. Add fields, constructors, and getters as required.
-    (Refer to `Wallet` for inspiration.)
+    (Refer to `Wallet` for inspiration.) DONE
 4. Rules:
-    - Deposits must be positive values.
-    - Cannot overdraw, but can return the remaining balance. 
+    - Deposits must be positive values. Done?
+    - Cannot overdraw, but can return the remaining balance. Done? 
     For example, if the balance is 45.0 and we withdraw(109.0) 
     the amount returned should be 45.0 and the balance should be 0.0 after the method call.

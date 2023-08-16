@@ -4,6 +4,9 @@ public class Exercise04 {
         // 1. Replace `null` with a new Vault. Initialize its balance to zero.
         MoneyStorage storage = new Vault(0.0, "The Vault");
 
+        // Make a deposit
+        // storage.deposit(200);
+
         // 2. Run Exercise04.
         // The only output allowed is: Success!
         // For other outputs, look at the message and fix the issue.

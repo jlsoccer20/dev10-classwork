@@ -5,7 +5,9 @@ public class Exercise07 {
     static Scanner console = new Scanner(System.in);
 
     public static void main(String[] args) {
+        // Type(Interface) variableName = function()
         MoneyStorage storage = getStorage();
+
         String input;
         do {
             print(storage);

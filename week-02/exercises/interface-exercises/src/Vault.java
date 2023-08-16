@@ -3,7 +3,7 @@ public class Vault implements MoneyStorage{
     // Defines a scope, which is the class
 
 
-    // declaring a field, which belongs in the scope
+    // declaring "fields", which belongs in the scope
     // these are "member variables"
     private double balance;
     private String description;
