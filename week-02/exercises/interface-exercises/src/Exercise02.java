@@ -1,6 +1,5 @@
 public class Exercise02 {
 
-
     // 1. Create a method.
     // Name: printAll
     // Inputs: MoneyStorage[]
@@ -28,9 +27,10 @@ public class Exercise02 {
     }
 
 
-    static void depositInAll(MoneyStorage[] storages, double amount) {
+    public static void depositInAll(MoneyStorage[] storages, double amount) {
         for (MoneyStorage storage : storages) {
-            storage.deposit(amount);
+            boolean returnedBoolean = storage.deposit(amount);
+            System.out.printf("$%s has been deposited in account %s: %s.  \n", amount, storage.getDescription(), returnedBoolean);
         }
     }
 
@@ -46,7 +46,7 @@ public class Exercise02 {
         // }
 
         for (MoneyStorage storage : moneyStorages){
-            System.out.println(storage);
+            //System.out.println(storage);
             System.out.printf("%s: %s\n",storage.getDescription(), storage.getBalance());
         }
     }

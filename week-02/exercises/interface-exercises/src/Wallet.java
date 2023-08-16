@@ -5,6 +5,7 @@
  */
 public class Wallet implements MoneyStorage {
 
+    // Fields (variables in the class)
     private double balance;
     private String description;
 
@@ -15,6 +16,7 @@ public class Wallet implements MoneyStorage {
         this.description = description;
     }
 
+    // Getters
     @Override
     public double getBalance() {
         return balance;

@@ -9,7 +9,7 @@ public class RecordPlayer implements MusicPlayer{
     }
     @Override
     public void play(){
-        if (powerSource == null){
+        if (powerSource == null||powerSource.getVolts()<= 0 ){
             System.out.println("No power.");
         } else if (powerSource.getVolts() == 120.0){
             System.out.println("Needle Drops on the record, turntable spins.");

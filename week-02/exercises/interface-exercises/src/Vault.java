@@ -4,6 +4,7 @@ public class Vault implements MoneyStorage{
 
 
     // declaring a field, which belongs in the scope
+    // these are "member variables"
     private double balance;
     private String description;
 
@@ -13,6 +14,7 @@ public class Vault implements MoneyStorage{
         this.description = description;
     } // <--- curly braces defines a new scope
 
+    // Getters - get stuff
     @Override
     public double getBalance() {
         return balance;

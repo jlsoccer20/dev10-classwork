@@ -1,7 +1,7 @@
 # Exercise03
 
-1. Add a new class to the project named `Vault`.
-2. `Vault` must implement `MoneyStorage`.
+1. Add a new class to the project named `Vault`. DONE
+2. `Vault` must implement `MoneyStorage`. DONE
 3. Complete the implementation. Add fields, constructors, and getters as required.
     (Refer to `Wallet` for inspiration.)
 4. Rules:

@@ -16,7 +16,10 @@ public class Exercise01 {
         print(mortgage);
 
         // 1. Declare a third MoneyStore variable here, either Wallet or Mortgage.
+        Wallet bulbasaurWallet = new Wallet(500, "Bulbasaur Wallet");
         // 2. Pass it to the `print` method.
+        bulbasaurWallet.deposit(250);
+        print(bulbasaurWallet);
     }
 
     static void print(MoneyStorage storage) {
