@@ -15,10 +15,11 @@ public class Exercise08 {
         // 2. While you're at it, change Wallet to the more generic MoneyStorage.
         // Person may optionally have a MoneyStorage.
 
-        Person p = new Person("Sidonnie", "Antonietti");
-        p.deposit(125.85);
+        Wallet wallet = new Wallet (0.0, "Sidonnie's Wallet");
+        Person p = new Person("Sidonnie", "Antonietti", wallet);
+        p.getWallet().deposit(125.85);
         System.out.println(p.getFullName());
-        System.out.println(p.getDescription());
-        System.out.println(p.getBalance());
+        System.out.println(p.getWallet().p.getDescription());
+        System.out.println(p.getWallet().p.getBalance());
     }
 }

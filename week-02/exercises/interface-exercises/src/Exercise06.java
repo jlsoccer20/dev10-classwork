@@ -50,10 +50,18 @@ public class Exercise06 {
             return;
         }
 
+//        result = account.withdraw(30);
+//        if (!Exercise04.withinThreshold(-25.00, result, 0.01)){
+//            System.out.println("when 30.0 is withdrawn from -10.0 balance, amount should be -15.");
+//            return;
+//        }
+
         if (!Exercise04.withinThreshold(-10.0, account.getBalance(), 0.01)) {
             System.out.println("when 60.0 is withdrawn from a 50.0 balance, balance should be -10.0");
             return;
         }
+
+
 
         System.out.println("Success!");
     }

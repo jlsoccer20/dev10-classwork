@@ -9,7 +9,7 @@ public class Exercise02 {
     /**
      * Given two Strings: some text and a tag name, return a String that embeds the text in a pseudo-HTML tag.
      * Examples:
-     * "abc", "boom" -> "<boom>abc</boom"
+     * "abc", "boom" -> "<boom>abc</boom>"
      * "Cats are mean.", "fact" -> "<fact>Cats are mean.</fact>"
      * "this is just text", "" -> "this is just text"
      * null, "span" -> "<span></span>"
@@ -20,6 +20,11 @@ public class Exercise02 {
      * @return string in the form: <tagName>text</tagName>
      */
     static String surroundWithTag(String text, String tagName) {
-        return null;
+        if (text == null){
+            text = "";
+        }
+        String pseudoHtmlTag = "<" + tagName + ">" + text + "</" + tagName + ">";
+        System.out.printf("<%s>%s</%s>",text, tagName, text);
+        return pseudoHtmlTag;
     }
 }

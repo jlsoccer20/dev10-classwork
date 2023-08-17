@@ -40,12 +40,35 @@ public class Exercise07 {
         System.out.println("4. Bank Account");
 
         String input;
+        MoneyStorage storage = null;
         do {
             System.out.print("Select [1-4]:");
             input = console.nextLine();
-        } while (!(input.length() == 1 && input.charAt(0) >= '1' && input.charAt(0) <= '4'));
 
-        // 1. Add a switch statement to handle options 1 - 4.
+            storage = makeMoneyStorage(input);
+
+//            // 1. Add a switch statement to handle options 1 - 4.
+//            switch (input){
+//                case"1":
+//                    storage = makeWallet();
+//                    //return makeWallet();
+//                    break;
+//                case"2":
+//                    storage = makeMortgage();
+//                    break;
+//                case"3":
+//                    storage = makeVault();
+//                    break;
+//                case"4":
+//                    storage = makeBankAccount();
+//                    break;
+//                default:
+//                    System.out.println("Not a valid option.");
+
+ //           }
+        } while (!(input.length() == 1 && input.charAt(0) >= '1' && input.charAt(0) <= '4'));
+        return storage;
+
         // 2. For each option, create a method that returns a MoneyStorage of the appropriate type:
         // 1 == Wallet, 2 == Mortgage, 3 == Vault, 4 == Bank Account
         // Prompt the user for data. Data should be specific to the type:
@@ -55,8 +78,54 @@ public class Exercise07 {
         // - for Vault?
 
         // 3. Return the Wallet, Mortgage, Vault, or Bank Account instead of null.
-        return null;
+
     }
+    static MoneyStorage makeMoneyStorage(String option){
+        System.out.print("Starting balance: ");
+        double startingBalance = Double.parseDouble(console.nextLine());
+        System.out.print("Vault Number: ");
+        String description = console.nextLine();
+        //return new Vault(startingBalance, description);
+        switch(option){
+            case"1" -> new Wallet(startingBalance, description);
+            case"2" -> new Mortgage(startingBalance, description);
+            case"3" -> new Vault(startingBalance, description);
+            case"4" -> new BankAccount(startingBalance, description);
+            default -> {
+            }
+        };
+    };
+//    private static MoneyStorage makeBankAccount() {
+//        System.out.print("Starting balance: ");
+//        double startingBalance = Double.parseDouble(console.nextLine());
+//        System.out.print("Vault Number: ");
+//        String vaultNumber = console.nextLine();
+//        return new Vault(startingBalance, vaultNumber);
+//    }
+//
+//    private static MoneyStorage makeVault() {
+//        System.out.print("Starting balance: ");
+//        double startingBalance = Double.parseDouble(console.nextLine());
+//        System.out.print("Vault Number: ");
+//        String vaultNumber = console.nextLine();
+//        return new Vault(startingBalance, vaultNumber);
+//    }
+//
+//    private static MoneyStorage makeMortgage() {
+//        System.out.print("Starting balance: ");
+//        double startingBalance = Double.parseDouble(console.nextLine());
+//        System.out.print("Mortgage Number: ");
+//        String mortgageNumber = console.nextLine();
+//        return new Mortgage(startingBalance, mortgageNumber);
+//    }
+//
+//    static Wallet makeWallet(){
+//        System.out.print("Starting balance: ");
+//        double startingBalance = Double.parseDouble(console.nextLine());
+//        System.out.print("Description: ");
+//        String description = console.nextLine();
+//        return new Wallet(startingBalance, description);
+//    }
 
     static void print(MoneyStorage storage) {
         System.out.println();

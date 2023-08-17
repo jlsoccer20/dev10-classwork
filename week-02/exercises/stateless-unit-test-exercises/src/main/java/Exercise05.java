@@ -21,6 +21,11 @@ public class Exercise05 {
      * @return true if value is within 5 of a number evenly divisible by 100, false if not.
      */
     public boolean isWithinFiveOfAHundred(int value) {
-        return false;
+        value = Math.abs(value % 100);
+        return value <= 5 || value >= 95;
+//        if (value <= 5 || value >= 95) {
+//            return true;
+
+//        return false;
     }
 }

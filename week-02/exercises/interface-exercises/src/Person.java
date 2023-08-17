@@ -1,14 +1,15 @@
-public class Person extends Wallet {
+public class Person {
 
     private final String firstName;
     private final String lastName;
 
-    public Person(String firstName, String lastName) {
-        // Wallet constructor
-        super(0.0, String.format("%s's Wallet", firstName));
+    private final Wallet wallet;
 
-        this.firstName = firstName;
+    public Person(String firstName, String lastName, Wallet wallet) {
+        // Wallet constructor
+                this.firstName = firstName;
         this.lastName = lastName;
+        this.wallet = wallet;
     }
 
     public String getFirstName() {
@@ -21,5 +22,19 @@ public class Person extends Wallet {
 
     public String getFullName() {
         return String.format("%s %s", firstName, lastName);
+    }
+
+    public boolean depositToWallet(double amount){
+        wallet.deposit(amount);
+        return true;
+    }
+
+    public boolean withdrawFromWallet(double amount){
+        if(amount <=5.0){
+            wallet.withdraw(amount);
+            return true;
+        }
+    }
+    public MoneyStorage getWallet() {
     }
 }
