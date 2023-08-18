@@ -12,6 +12,21 @@ public class Exercise03 {
         HashMap<String, Vehicle> vehicleMap = VehicleRepository.getMap();
 
         // 2. Print `vehicleMap` using your "print all" method.
+        printVehicles(vehicleMap);
+
+    }
+
+    public static void printVehicles(HashMap<String, Vehicle> vehicleMap){
+        // Loop over keys in a hash map
+        for (String vin : vehicleMap.keySet()) { // list of vins
+            System.out.printf("Vin Number: %s, %s%n", vin, vehicleMap.get(vin)); // prints out list of vins
+        }
+        for (Vehicle v : vehicleMap.values()){
+            if (v.getMake().equalsIgnoreCase("Ford") && v.getYear() >= 2000){
+                System.out.println(v);
+            }
+        }
+
     }
 }
 
