@@ -8,6 +8,7 @@ import learn.gomoku.players.HumanPlayer;
 import learn.gomoku.players.Player;
 import learn.gomoku.players.RandomPlayer;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
@@ -26,6 +27,10 @@ public class Controller {
 
         // variable name "result" stores the result of the game, type "Result"
         Result result;
+
+        // board to display to the user
+        char[][] board = new char[Gomoku.WIDTH][Gomoku.WIDTH];
+
         do {
 
             Player currentPlayer = game.getCurrent();
@@ -43,14 +48,19 @@ public class Controller {
 
             result = game.place(stone);
 
+            if (result.isSuccess()) {
+                board[stone.getRow()][stone.getColumn()] = game.isBlacksTurn() ? 'B' : 'W';
+                for (char[] row : board) {
+                    System.out.printf(Arrays.toString(row) + "\n");
+                }
+            }
 
         } while (!game.isOver());
 
-        System.out.printf("\n________________\n%s\n________________", result.getMessage()); // End game message
+        System.out.printf("\n________________________________\n%s\n________________________________", result.getMessage()); // End game message
 
-        System.out.println("Would you like to play again? [y/n]: ");
-        String playAgain = console.nextLine();
-        
+
+
     }
 
     // Method with return type "Gomoku"
@@ -110,6 +120,8 @@ public class Controller {
 
         return new ConsoleHumanPlayer(name);
     }
+
+
 
 
 

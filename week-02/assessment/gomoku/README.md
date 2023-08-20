@@ -8,14 +8,15 @@
 - Since the random player doesn't require input, the UI should display stone placement and the results of placement. (Random player placement may fail since they don't know what they're doing.) PARTIALLY DONE
 - Re-prompt on failed placement. The game must not proceed until a player has made a valid move. PARTIALLY DONE
 - Display the final result of the game. DONE
-- Give the option to play again.
+- Give the option to play again. DONE
 
 
 
 - All rules are modeled inside the Gomoku class. You may not modify Gomoku, Player, HumanPlayer, RandomPlayer, Stone, or Result.
 - Add your code to the project provided. Be sure to use sensible class names, method names, and packages.
-- At least one class beyond the App class is required.
+- At least one class beyond the App class is required. DONE
 - Stones use 0-based rows and columns.
+
 ## Tasks
 
 ### PreCoding

@@ -8,6 +8,7 @@ import java.util.Scanner;
 import java.util.Set;
 
 public class GameController {
+    // This class is not used. 
 
     private final Scanner console = new Scanner(System.in);
 
