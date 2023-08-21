@@ -10,7 +10,21 @@ public class Exercise06 {
         ArrayList<BoardGame> games = GameRepository.getAll();
 
         // 1. Use a loop to find the game in `games` that can be played by the most players.
+        BoardGame theHighestPlayersGameTheyAreHigh  = null;
+        int highestPlayerCount = 0;
+        for (BoardGame game : games){
+            System.out.println(game.getMaxPlayers());
+            if (game.getMaxPlayers() > highestPlayerCount) {
+                highestPlayerCount = game.getMaxPlayers();
+                theHighestPlayersGameTheyAreHigh = game;
+            }
+        }
+        // be asserted
+        assert theHighestPlayersGameTheyAreHigh != null;
+
+
         // 2. Print the game. (Expected: "Ultimate Werewolf...")
+        System.out.printf("The game with the most players is %s!%n", theHighestPlayersGameTheyAreHigh.getName());
 
         // Store the max player game so far
         BoardGame gameWithMaxPlayers = games.get(0);
