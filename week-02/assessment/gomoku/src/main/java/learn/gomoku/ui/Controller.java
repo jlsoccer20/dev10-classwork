@@ -30,7 +30,9 @@ public class Controller {
 
         // board to display to the user
         char[][] board = new char[Gomoku.WIDTH][Gomoku.WIDTH];
-
+        for (char[] row : board){
+            Arrays.fill(row, '_'); // get rid of null character
+        }
         do {
 
             Player currentPlayer = game.getCurrent();
@@ -48,10 +50,22 @@ public class Controller {
 
             result = game.place(stone);
 
+
             if (result.isSuccess()) {
-                board[stone.getRow()][stone.getColumn()] = game.isBlacksTurn() ? 'B' : 'W';
-                for (char[] row : board) {
-                    System.out.printf(Arrays.toString(row) + "\n");
+                board[stone.getRow()][stone.getColumn()] = game.isBlacksTurn() ? 'X' : 'O';
+                System.out.print("    ");
+                // show board
+                for (int colNumber = 1; colNumber <= Gomoku.WIDTH; colNumber++){
+                    // Displays the Column Numbers (01 - 15)
+                    System.out.printf("%02d ", colNumber);
+                }
+                for (int rowIndex = 0; rowIndex < Gomoku.WIDTH; rowIndex++){
+                    // Displays the Row Numbers (01 - 15)
+                    System.out.printf("\n%02d ", rowIndex+1);
+
+                        // Displays the board
+                        System.out.printf(Arrays.toString(board[rowIndex]));
+
                 }
             }
 
