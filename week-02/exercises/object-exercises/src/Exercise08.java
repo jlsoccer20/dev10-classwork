@@ -6,6 +6,7 @@ public class Exercise08 {
     // Output: void
     // Description: adds a random value to the psi field between 0.0 and 5.0
     // this.psi = this.psi + Math.random() * 5.0;
+    // DONE
 
     public static void main(String[] args) {
 
