@@ -6,3 +6,4 @@
     - `Power[] powers`
 3. Add a constructor that accepts a `String` and `Power[]` and sets the appropriate field.
 4. Add getters for both the `name` and `powers` fields.
+5. DONE
