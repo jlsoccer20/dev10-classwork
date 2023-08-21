@@ -13,8 +13,8 @@ public class Exercise01 {
         // 3. Instantiate two more musicians and assign them to new variables.
         // 4. Print the musicians' names to the console.
 
-        Musician Beatles = new Musician("Paul McCartney",100);
-        System.out.println(Beatles.getName());
+        Musician beatles = new Musician("Paul McCartney",100);
+        System.out.println(beatles.getName());
 
         Musician rollingStones = new Musician("Mick Jagger", 50);
 

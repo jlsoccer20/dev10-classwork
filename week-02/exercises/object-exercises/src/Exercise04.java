@@ -8,7 +8,7 @@ public class Exercise04 {
 
         // 1. Add an empty constructor to Musician.
         // 2. Uncomment the code below and make sure it runs.
-/*
+
         Musician m = new Musician();
         System.out.print("Musician name:");
         m.setName(console.nextLine());
@@ -18,28 +18,32 @@ public class Exercise04 {
         System.out.printf("%s: %s%n", m.getName(), m.getRating());
 
 
-  */
+
 
         String input;
 
         // 3. Add a loop. The exercise should ask the user for musicians and print
         // them out until the user types "end".
-/*
+        Musician m2;
         do{
-            Musician m = new Musician();
-            System.out.print("Musician name:");
+            m2 = new Musician();
+            System.out.println("Musician name: ");
             input = console.nextLine();
 
             if (!input.equals("end")){
-                m.setName(console.nextLine());
-                System.out.print("Musician rating:");
-                int rating = Integer.parseInt(console.nextLine());
-                m.setRating(rating);
-                System.out.printf("%s: %s%n", m.getName(), m.getRating());
+                m2.setName(input);
+                System.out.print("Musician rating: ");
+                rating = Integer.parseInt(console.nextLine());
+                m2.setRating(rating);
+                System.out.printf("%s: %s%n", m2.getName(), m2.getRating());
+            }
+            else {
+                break;
             }
 
-        } while(!m.getName().equals("end"));
-        */
+
+        } while(!m2.getName().equals("end"));
+
 
     }
 }

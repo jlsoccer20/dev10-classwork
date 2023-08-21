@@ -3,8 +3,8 @@ public class Musician {
     private String name;
     private int rating;
 
+    // Constructor
     public Musician(){
-
     }
 
     public void setName(String name) {

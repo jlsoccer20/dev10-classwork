@@ -6,7 +6,7 @@ public class Exercise02 {
 
         Musician ocean = new Musician("Frank Ocean", 10);
         System.out.println(ocean.getName());
-        // 2. Uncomment the line below and insure that it compiles and runs.
+        // 2. Uncomment the line below and ensure that it compiles and runs.
         System.out.println(ocean.getRating());
 
         // 3. Instantiate two musicians and assign them to new variables.
