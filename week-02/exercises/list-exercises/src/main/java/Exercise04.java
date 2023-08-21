@@ -19,15 +19,29 @@ public class Exercise04 {
         // 3. Print the new list.
         System.out.println(jessicasGames);
 
-        /* Doesn't work
-        for (BoardGame game : jessicasGames){
-            System.out.println(jessicasGames.get(game)); // wants an int here
-        }
-           */
+
         // 4. Add items in the new list to `games` with the `addAll` method.
         games.addAll(jessicasGames);
 
         // 5. Print `games`.
-        System.out.println(games);
+        System.out.println("\nLearning how to make For Loops 1: ");
+        for (BoardGame game : games){
+            System.out.println(game.getName());
+        }
+        System.out.println("\nLearning how to make For Loops 2: ");
+        for (int i = 0; i < games.size(); i++) {
+            BoardGame game = games.get(i);
+            System.out.println(game.getName());
+        }
+
+        System.out.println("\nLearning how to make For Loops 3: ");
+        for (int i = 0; i < games.size(); i++) {
+            System.out.println(games.get(i).getName());
+        }
+
+
+
+        //BoardGame objectBoardGame = games.get(0).getName();
+
     }
 }
