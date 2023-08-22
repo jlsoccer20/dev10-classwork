@@ -25,6 +25,7 @@ public class RandomPlayer implements Player {
     private final Random random = new Random();
     private final String name;
 
+    // Constructor
     public RandomPlayer() {
         name = String.format("%s %s %s",
                 titles[random.nextInt(titles.length)],
@@ -33,11 +34,13 @@ public class RandomPlayer implements Player {
         );
     }
 
+    // Method with return type "String
     @Override
     public String getName() {
         return name;
     }
 
+    // Method with return type "Stone"
     @Override
     public Stone generateMove(List<Stone> previousMoves) {
 

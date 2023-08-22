@@ -7,23 +7,29 @@ public class Result {
     private final boolean success;
     private final String message;
 
+    // Constructor
     public Result(String message) {
         this(message, false);
     }
 
+    // Constructor
     public Result(String message, boolean success) {
         this.message = message;
         this.success = success;
     }
 
+    // Method with return type "boolean"
     public boolean isSuccess() {
         return success;
     }
 
+    // Method with return type "String"
     public String getMessage() {
         return message;
     }
 
+
+    // Method with return type "boolean"
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -33,11 +39,13 @@ public class Result {
                 Objects.equals(message, result.message);
     }
 
+    // Method with return type "int"
     @Override
     public int hashCode() {
         return Objects.hash(success, message);
     }
 
+    // Method with return type "String"
     @Override
     public String toString() {
         return "Result{" +
