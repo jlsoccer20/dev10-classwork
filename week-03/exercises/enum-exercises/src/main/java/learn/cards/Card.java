@@ -3,7 +3,16 @@ package learn.cards;
 public class Card {
 
     // 1. Add a Suit and Rank field to the Card class.
+    Rank rank = Rank.QUEEN;
+    Suit suit = Suit.HEARTS;
+
     // 2. Add a constructor that accepts a Suit and Rank and sets the appropriate fields.
+
+    public Card(Rank rank, Suit suit) {
+        this.rank = rank;
+        this.suit = suit;
+    }
+
     // 3. Add getters for both suit and rank.
 
     public String getName() {
