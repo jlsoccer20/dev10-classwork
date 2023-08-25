@@ -47,9 +47,10 @@ public class Card {
 
         // Note: it's unlikely you'll be able to use the enum name directly since enum naming conventions
         // don't match the required output.
-        return null;
+        //return null;
     }
 
     public int compareTo(Card two) {
+        return 0;
     }
 }

@@ -1,28 +1,29 @@
 package learn.boardgames.models;
 
+import java.util.Objects;
+
 public class BoardGame {
-
-    // identifier, internal value for us to keep track of, not to show to user
     private int id;
-
-    private String title; // title of board game
-
+    // should not be null or blank
+    private String title;
+    // should be greater than equal to 1
     private int minimumPlayers;
+    // should be grater than equal to min players
     private int maximumPlayers;
+    // should sorta be a date or null
     private String retailReleaseDate;
+    // less than equal to 10 and greater than equal to 0
     private double rating;
     private boolean inCollection;
+    // should not be null
     private Availability availability;
 
-
-    // Empty constructor
-    public BoardGame(){
+    public BoardGame() {
 
     }
 
-    // Constructor
     public BoardGame(int id, String title, int minimumPlayers, int maximumPlayers,
-                     String retailReleaseDate, double rating, boolean inCollection) {
+                     String retailReleaseDate, double rating, boolean inCollection, Availability availability) {
         this.id = id;
         this.title = title;
         this.minimumPlayers = minimumPlayers;
@@ -30,10 +31,7 @@ public class BoardGame {
         this.retailReleaseDate = retailReleaseDate;
         this.rating = rating;
         this.inCollection = inCollection;
-    }
-
-    public BoardGame(){
-
+        this.availability = availability;
     }
 
     public int getId() {
@@ -90,5 +88,40 @@ public class BoardGame {
 
     public void setInCollection(boolean inCollection) {
         this.inCollection = inCollection;
+    }
+
+    public Availability getAvailability() {
+        return availability;
+    }
+
+    public void setAvailability(Availability availability) {
+        this.availability = availability;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        BoardGame boardGame = (BoardGame) o;
+        return id == boardGame.id && minimumPlayers == boardGame.minimumPlayers && maximumPlayers == boardGame.maximumPlayers && Double.compare(boardGame.rating, rating) == 0 && inCollection == boardGame.inCollection && Objects.equals(title, boardGame.title) && Objects.equals(retailReleaseDate, boardGame.retailReleaseDate) && availability == boardGame.availability;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, title, minimumPlayers, maximumPlayers, retailReleaseDate, rating, inCollection, availability);
+    }
+
+    @Override
+    public String toString() {
+        return "BoardGame{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", minimumPlayers=" + minimumPlayers +
+                ", maximumPlayers=" + maximumPlayers +
+                ", retailReleaseDate='" + retailReleaseDate + '\'' +
+                ", rating=" + rating +
+                ", inCollection=" + inCollection +
+                ", availability=" + availability +
+                '}';
     }
 }
