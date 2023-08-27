@@ -112,10 +112,21 @@ class SolarPanelFileRepositoryTest {
     @Test
     void update() throws DataAccessException {
         // TODO: complete
+        // does it return true if the solar panel exists?
+        // does it return false if it doesn't exist?
+
+        // assertTrue
+        // assertEquals expected value (check BoardGameFileRepositoryTest)
     }
 
     @Test
     void deleteById() throws DataAccessException {
         // TODO: complete
+        // does it return true if the solar panel exists?
+        // does it return false if it doesn't exist?
+
+        // run the delete twice, for it to return true once, then false once
+        // assertTrue(repository.deletebyID(#));
+        // assertFalse(repository.deletebyID(#));
     }
 }

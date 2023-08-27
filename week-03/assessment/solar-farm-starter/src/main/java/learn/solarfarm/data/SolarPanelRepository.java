@@ -3,7 +3,7 @@ package learn.solarfarm.data;
 import learn.solarfarm.models.SolarPanel;
 
 import java.util.List;
-
+// this is what a respository should do
 public interface SolarPanelRepository {
     List<SolarPanel> findBySection(String section) throws DataAccessException;
 
@@ -12,6 +12,7 @@ public interface SolarPanelRepository {
     SolarPanel create(SolarPanel solarPanel) throws DataAccessException;
 
     // TODO: add an update method
-
+    boolean update(SolarPanel solarPanel) throws DataAccessException;
     // TODO: add a delete method
+    boolean deleteById(int id) throws DataAccessException;
 }

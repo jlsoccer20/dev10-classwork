@@ -6,6 +6,9 @@ import learn.solarfarm.models.SolarPanel;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
+// Writing to the
+// serializes deeserliailiezses
+// delimiter
 
 public class SolarPanelFileRepository implements SolarPanelRepository {
     private final String filePath;
@@ -48,8 +51,32 @@ public class SolarPanelFileRepository implements SolarPanelRepository {
     }
 
     // TODO: add an update method (must match with interface)
-
+    @Override
+    public boolean update(SolarPanel solarPanel) throws DataAccessException{
+        List<SolarPanel> solarPanels = findAll();
+        for (int i = 0; i < solarPanels.size(); i++) {
+            if (solarPanels.get(i).getId() == solarPanel.getId()) {
+                solarPanels.set(i, solarPanel);
+                writeToFile(solarPanels);
+                return true;
+            }
+        }
+        return false;
+    }
     // TODO: add a delete method (must match with interface)
+    @Override
+    public boolean deleteById(int id) throws DataAccessException{
+        List<SolarPanel> solarPanels = findAll();
+        for(int i = 0; i < solarPanels.size(); i++){
+            SolarPanel solarPanel = solarPanels.get(i);
+            if (solarPanel.getId() == id){
+                solarPanels.remove(i);
+                writeToFile(solarPanels);
+                return true;
+            }
+        }
+        return false;
+    }
 
     private List<SolarPanel> findAll() throws DataAccessException {
         ArrayList<SolarPanel> result = new ArrayList<>();
