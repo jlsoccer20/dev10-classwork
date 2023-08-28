@@ -80,11 +80,14 @@ public class Controller {
         }
     }
 
-
+    //TODO: locate by row and column
     // use existing solar panel, what section row and column
     private void updateSolarPanel() throws DataAccessException {
         view.displayHeader("Update a Panel");
-        SolarPanel sp = view.selectSolarPanel(service.findAll());
+        view.getSection();
+        view.getRow();
+        view.getColumn();
+        SolarPanel sp = SolarPanelService.findByKey();
         if (sp != null){
             SolarPanel updatedSolarPanel = view.updateSolarPanel(sp);
             SolarPanelResult result = service.update(updatedSolarPanel);
@@ -94,6 +97,8 @@ public class Controller {
                 view.displayErrors(result.getErrorMessages());
             }
         }
+
+        // Not yet finished
         // TODO: grab the section, row, and column from the view.
         // TODO: use the service to fetch a solar panel by its key (section, row, column).
         // TODO: complete update
