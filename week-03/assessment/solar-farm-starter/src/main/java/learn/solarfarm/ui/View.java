@@ -87,4 +87,18 @@ public class View {
 
         return result; // return solar panel
     }
+
+    public SolarPanel updateSolarPanel(SolarPanel sp){
+        io.println("");
+        displayHeader("Updating Solar Panel");
+        displaySolarPanels(List.of(sp));
+        io.println("");
+        sp.setSection(io.readRequiredString("Section"));
+        sp.setRow(io.readInt("Row"));
+        sp.setColumn(io.readInt("Column"));
+        sp.setMaterial(io.readEnum("Material"));
+        sp.setYearInstalled(io.readInt("Year Installed"));
+        sp.setTracking(io.readBoolean("Solar Tracking [y/n]"));
+        return sp;
+    }
 }

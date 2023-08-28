@@ -36,4 +36,8 @@ public class SolarPanelResult {
     public void setSolarPanel(SolarPanel solarPanel) {
         this.solarPanel = solarPanel;
     }
+
+    public List<String> getMessages() {
+        return new ArrayList<>(messages);
+    }
 }

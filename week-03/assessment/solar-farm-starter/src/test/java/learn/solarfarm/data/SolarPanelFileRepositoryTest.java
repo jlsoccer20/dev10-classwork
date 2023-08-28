@@ -126,7 +126,7 @@ class SolarPanelFileRepositoryTest {
         // does it return false if it doesn't exist?
 
         // run the delete twice, for it to return true once, then false once
-        // assertTrue(repository.deletebyID(#));
-        // assertFalse(repository.deletebyID(#));
+        assertTrue(repository.deletebyID(2));
+        assertFalse(repository.deletebyID(2));
     }
 }

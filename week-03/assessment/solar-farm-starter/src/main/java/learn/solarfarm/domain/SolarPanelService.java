@@ -69,11 +69,11 @@ public class SolarPanelService {
         return result;
     }
     // TODO: add a delete method (possibly deleteById?)
-    public SolarPanelResult deleteById(int solarpanelId) throws DataAccessException {
+    public SolarPanelResult deleteById(int solarPanelId) throws DataAccessException {
         SolarPanelResult result = new SolarPanelResult();
-        boolean success = repository.deleteById(solarpanelId);
+        boolean success = repository.deleteById(solarPanelId);
         if(!success) {
-            result.addErrorMessage("Could not delete solar panel ID " + solarpanelId);
+            result.addErrorMessage("Could not delete solar panel ID " + solarPanelId);
         }
         return result;
     }
@@ -122,5 +122,9 @@ public class SolarPanelService {
         }
 
         return result;
+    }
+
+    public Object findAll() throws DataAccessException {
+        return repository.findAll();
     }
 }

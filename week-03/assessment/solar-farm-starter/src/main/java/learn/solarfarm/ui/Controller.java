@@ -87,7 +87,7 @@ public class Controller {
         view.getSection();
         view.getRow();
         view.getColumn();
-        SolarPanel sp = SolarPanelService.findByKey();
+        SolarPanel sp = SolarPanelService.findByKey(); // this is static?
         if (sp != null){
             SolarPanel updatedSolarPanel = view.updateSolarPanel(sp);
             SolarPanelResult result = service.update(updatedSolarPanel);
@@ -106,13 +106,13 @@ public class Controller {
 
     private void deleteSolarPanel() throws DataAccessException{
         view.displayHeader("Delete a panel");
-        SolarPanel sp = view.selectSolarPanel(service.findAll());
+        SolarPanel sp = view.displaySolarPanels(service.findAll());
         if (sp != null){
             SolarPanelResult result = service.deleteById(sp.getId());
             if (result.isSuccess()){
                 view.displayMessage("[Success]%n Solar panel %s successfully deleted.", sp.getId()); // get section? row and column?
             } else{
-                view.displayMessage(result.getMessages());
+                view.displayMessage(result.getMessages()); // Not sure what to do here
             }
         }
     }
