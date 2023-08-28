@@ -15,13 +15,13 @@ public class App {
         // create repository // Data - Interface --> Class
         SolarPanelRepository repository = new SolarPanelFileRepository("./data/solarfarm.txt");
         // create service // Domain
-        SolarPanelService service = new SolarPanelService(repository);
+        SolarPanelService service = new SolarPanelService(repository); // inject repository into service
 
         TextIO io = new ConsoleIO();
         View view = new View(io);
 
         // run controller
-        Controller controller = new Controller(view, service);
+        Controller controller = new Controller(view, service); // inject view and service into controller
         controller.run();
 
         // "view by section" and solarpanel sections work - then build on them

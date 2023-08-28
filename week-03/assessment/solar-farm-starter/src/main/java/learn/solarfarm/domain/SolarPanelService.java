@@ -124,7 +124,7 @@ public class SolarPanelService {
         return result;
     }
 
-    public Object findAll() throws DataAccessException {
+    public List<SolarPanel> findAll() throws DataAccessException {
         return repository.findAll();
     }
 }

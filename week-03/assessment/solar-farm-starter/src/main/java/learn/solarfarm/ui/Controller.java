@@ -9,7 +9,7 @@ import java.util.List;
 // brains of the UI
 // needs view and service - dependencies
 public class Controller {
-    private final View view;
+    private final View view; // these are objects
     private final SolarPanelService service;
 
     public Controller(View view, SolarPanelService service) {
@@ -50,7 +50,7 @@ public class Controller {
                     // TODO: complete delete
                     // delete this line
                     // DO NOT DO PRINT LINES HERE
-                    System.out.println("NOT IMPLEMENTED");
+                    //System.out.println("NOT IMPLEMENTED");
                     break;
             }
         }
@@ -84,15 +84,15 @@ public class Controller {
     // use existing solar panel, what section row and column
     private void updateSolarPanel() throws DataAccessException {
         view.displayHeader("Update a Panel");
-        view.getSection();
-        view.getRow();
-        view.getColumn();
-        SolarPanel sp = SolarPanelService.findByKey(); // this is static?
+        String section = view.getSection(); // How to reach solar panel by row and column?
+        int row = view.getRow();
+        int column = view.getColumn();
+        SolarPanel sp = service.findByKey(section, row, column);
         if (sp != null){
             SolarPanel updatedSolarPanel = view.updateSolarPanel(sp);
             SolarPanelResult result = service.update(updatedSolarPanel);
             if (result.isSuccess()){
-                view.displayMessage("[Success]%n Solar panel %s successfully updated.", sp.getTitle());
+                view.displayMessage("[Success]%n Solar panel %s successfully updated.", sp.getKey());
             } else {
                 view.displayErrors(result.getErrorMessages());
             }
@@ -106,14 +106,27 @@ public class Controller {
 
     private void deleteSolarPanel() throws DataAccessException{
         view.displayHeader("Delete a panel");
-        SolarPanel sp = view.displaySolarPanels(service.findAll());
-        if (sp != null){
+
+        String section = view.getSection(); // How to reach solar panel by row and column?
+        int row = view.getRow();
+        int column = view.getColumn();
+        SolarPanel sp = service.findByKey(section, row, column);
+        if (sp != null) {
             SolarPanelResult result = service.deleteById(sp.getId());
-            if (result.isSuccess()){
-                view.displayMessage("[Success]%n Solar panel %s successfully deleted.", sp.getId()); // get section? row and column?
-            } else{
-                view.displayMessage(result.getMessages()); // Not sure what to do here
-            }
+           if (result.isSuccess()){
+               view.displayMessage("[Success]%n Solar panel %s successfully deleted.", sp.getId()); // get section? row and column?
+           } else{
+               view.displayErrors(result.getMessages());
+           }
         }
+//        SolarPanel sp = view.displaySolarPanels("all", service.findAll());
+//        if (sp != null){
+//            SolarPanelResult result = service.deleteById(sp.getId());
+//            if (result.isSuccess()){
+//                view.displayMessage("[Success]%n Solar panel %s successfully deleted.", sp.getId()); // get section? row and column?
+//            } else{
+//                view.displayMessage(result.getMessages()); // Not sure what to do here
+//            }
+//        }
     }
 }
