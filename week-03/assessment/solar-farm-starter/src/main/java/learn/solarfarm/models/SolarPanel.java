@@ -3,12 +3,19 @@ package learn.solarfarm.models;
 import java.util.Objects;
 
 public class SolarPanel {
+
+    // uniquely identify solar panels
     private int id;
+
+    //where panel is installed
     private String section;
     private int row;
     private int column;
     private int yearInstalled;
+
+    // Enum
     private Material material;
+    // Panel has solar-tracking software installed
     private boolean isTracking;
 
     public SolarPanel() {
@@ -24,6 +31,7 @@ public class SolarPanel {
         this.isTracking = isTracking;
     }
 
+    // Getters and Setters
     public int getId() {
         return id;
     }
@@ -98,6 +106,7 @@ public class SolarPanel {
         return id == that.id && row == that.row && column == that.column && yearInstalled == that.yearInstalled && isTracking == that.isTracking && Objects.equals(section, that.section) && material == that.material;
     }
 
+    // Check for field-value equality, not just reference equality
     @Override
     public int hashCode() {
         return Objects.hash(id, section, row, column, yearInstalled, material, isTracking);
