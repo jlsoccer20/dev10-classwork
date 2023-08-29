@@ -38,6 +38,7 @@ public class Exercise02 {
     // time == 04:30:00
     // appointments == 04:30, 04:45, 05:00, 05:15
     List<LocalDateTime> getQuarterHourAppointments(LocalDateTime dateTime) {
+
         return null;
     }
 }
