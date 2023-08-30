@@ -13,6 +13,7 @@ public class View {
         this.io = io;
     }
 
+    // TODO: Should this start at option 1?
     public int chooseMenuOption() {
         displayHeader("Main Menu");
         io.println("0. Exit");
@@ -25,6 +26,7 @@ public class View {
 
     public String getSection() {
         io.println("");
+        // what section does the user want to see?
         return io.readRequiredString("Section Name");
     }
 
@@ -74,14 +76,29 @@ public class View {
         displayHeader("Add a Panel");
         io.println("");
 
+        // Adding a new solar panel and ask user for new fields
         SolarPanel result = new SolarPanel();
         result.setSection(io.readRequiredString("Section"));
         result.setRow(io.readInt("Row", 1, SolarPanelService.MAX_ROW_COLUMN));
         result.setColumn(io.readInt("Column", 1, SolarPanelService.MAX_ROW_COLUMN));
-        result.setMaterial(io.readEnum("Material", Material.class));
+        result.setMaterial(io.readEnum("Material", Material.class)); // prompt user for Enum selection
         result.setYearInstalled(io.readInt("Installation Year", SolarPanelService.getMaxInstallationYear()));
         result.setTracking(io.readBoolean("Tracked [y/n]"));
 
-        return result;
+        return result; // return solar panel
+    }
+
+    public SolarPanel updateSolarPanel(SolarPanel sp){
+        io.println("");
+        displayHeader("Updating Solar Panel");
+        //displaySolarPanels(List.of(sp));
+        io.println("");
+        sp.setSection(io.readRequiredString("Section"));
+        sp.setRow(io.readInt("Row"));
+        sp.setColumn(io.readInt("Column"));
+        sp.setMaterial(io.readEnum("Material", Material.class)); // prompt user for Enum selection
+        sp.setYearInstalled(io.readInt("Year Installed"));
+        sp.setTracking(io.readBoolean("Solar Tracking [y/n]"));
+        return sp;
     }
 }
