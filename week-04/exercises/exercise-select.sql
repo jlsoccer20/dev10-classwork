@@ -6,24 +6,54 @@ use gravel_family;
 
 -- Example:
 -- Select all columns from the employee table.
--- Expected: 33 Rows
-select * from employee;
+-- Expected: 33 Rows DONE
+/*
+select 
+	employee_id,
+    first_name,
+    last_name
+    from employee;
+    */
 
 -- Select the employee_id, first_name, and last_name from employee.
--- Expected: 33 Rows, 3 columns
+-- Expected: 33 Rows, 3 columns DONE
 
 -- Select the employee_id, first_name, and start_date from employee
 -- where the last_name equals 'Gravel'.
--- Expected: 7 Rows, 3 columns
+-- Expected: 7 Rows, 3 columns DONE
+
+select 
+	employee_id,
+    first_name,
+    last_name
+    from employee 
+where last_name = 'Gravel';
+
 
 -- Select first_name, last_name, and city from customer
 -- where the city equals 'Ajax'.
--- Expected: 13 Rows, 3 columns
+-- Expected: 13 Rows, 3 columns DONE
+/*
+select
+first_name,
+last_name,
+city
+from customer
+where city = 'Ajax';
+*/
+
 
 -- Select last_name, email_address, and customer_since from customer
 -- for all customers with a customer_since value in the year 2019.
--- Expected: 100 Rows, 3 columns
-
+-- Expected: 100 Rows, 3 columns DONE
+/*
+select 
+last_name, 
+email_address, 
+customer_since 
+from customer
+where customer_since >= '2019-01-01' and customer_since <= '2019-12-31';
+*/
 -- If you solved the previous task without `between`, use `between`.
 -- If you used `between`, solve it with `and`.
 -- Expected: 100 Rows, 3 columns
