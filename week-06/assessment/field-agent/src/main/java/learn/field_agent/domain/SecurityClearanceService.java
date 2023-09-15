@@ -11,9 +11,7 @@ public class SecurityClearanceService {
     private final SecurityClearanceRepository repository;
     public SecurityClearanceService(SecurityClearanceRepository repository){this.repository = repository;}
 
-    // TODO: findAll()
-    //  see AgentService
-    //public List<SecurityClearance> findAll(){return repository.findAll();}
+    public List<SecurityClearance> findAll(){return repository.findAll();}
 
     public SecurityClearance findById(int securityClearanceId) { return repository.findById(securityClearanceId);}
 

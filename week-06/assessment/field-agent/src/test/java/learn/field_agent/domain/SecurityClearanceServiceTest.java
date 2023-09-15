@@ -17,9 +17,9 @@ public class SecurityClearanceServiceTest {
     @MockBean
     SecurityClearanceRepository repository;
 
-    // Build findByIdTest()
+
     @Test
-    void shouldFindSecret(){
+    void shouldFindSecurityClearance(){ // findByIdTest()
         SecurityClearance expected = makeSecurityClearance();
         when(repository.findById(1)).thenReturn(expected);
         SecurityClearance actual = service.findById(1);

@@ -2,10 +2,11 @@ package learn.field_agent.data;
 
 import learn.field_agent.models.SecurityClearance;
 
-public interface SecurityClearanceRepository {
+import java.util.List;
 
-    // TODO: findAll();
-    //  see AgentRepository
+public interface SecurityClearanceRepository { // see AgentRepository
+    List<SecurityClearance> findAll();
+
     SecurityClearance findById(int securityClearanceId);
 
     // TODO: add();

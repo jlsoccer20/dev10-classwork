@@ -18,9 +18,8 @@ public class SecurityClearanceController {
         this.service = service;
     }
 
-    // TODO:
-    //@GetMapping
-    //public List<SecurityClearance> findAll(){return service.findAll();}
+    @GetMapping
+    public List<SecurityClearance> findAll(){return service.findAll();}
 
     @GetMapping("/{securityClearanceId}")
     public SecurityClearance findById(@PathVariable int securityClearanceId){return service.findById(securityClearanceId);}
