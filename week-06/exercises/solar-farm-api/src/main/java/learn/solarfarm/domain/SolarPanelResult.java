@@ -9,6 +9,15 @@ import java.util.Objects;
 public class SolarPanelResult {
     private final ArrayList<String> messages = new ArrayList<>();
     private SolarPanel solarPanel;
+    private ResultType resultType;
+
+    public ResultType getResultType(){
+        return resultType;
+    }
+
+    public void setResultType(ResultType resultType) {
+        this.resultType = resultType;
+    }
 
     public List<String> getErrorMessages() {
         return new ArrayList<>(messages);

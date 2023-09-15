@@ -6,6 +6,7 @@ import learn.solarfarm.models.SolarPanel;
 import java.time.Year;
 import java.util.List;
 
+
 public class SolarPanelService {
     public final static int MAX_ROW_COLUMN = 250;
 

@@ -1,0 +1,7 @@
+// Find by Section Happy Path
+
+GET http://localhost:8080/api/panels/Flats HTTP/1.1
+
+###
+//Find By Section Unhappy Path
+GET http://localhost:8080/api/panels/Nonexistent HTTP/1.1
