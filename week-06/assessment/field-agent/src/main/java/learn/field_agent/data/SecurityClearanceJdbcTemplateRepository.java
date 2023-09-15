@@ -14,6 +14,8 @@ public class SecurityClearanceJdbcTemplateRepository implements SecurityClearanc
         this.jdbcTemplate = jdbcTemplate;
     }
 
+    // TODO: findAll();
+
     @Override
     public SecurityClearance findById(int securityClearanceId) {
 
@@ -25,4 +27,10 @@ public class SecurityClearanceJdbcTemplateRepository implements SecurityClearanc
                 .stream()
                 .findFirst().orElse(null);
     }
+
+    // TODO: add();
+
+    // TODO: update();
+
+    // TODO: deleteById();
 }
