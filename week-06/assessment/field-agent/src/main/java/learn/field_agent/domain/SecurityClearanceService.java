@@ -34,7 +34,10 @@ public class SecurityClearanceService {
 
     // TODO: update()
 
-    // TODO: deleteById()
+    public boolean deleteById(int securityClearanceId) {
+        return repository.deleteById(securityClearanceId);
+    }
+
 
     private Result<SecurityClearance> validate(SecurityClearance securityClearance){
         Result<SecurityClearance> result = new Result<>();
@@ -46,14 +49,12 @@ public class SecurityClearanceService {
         if(Validations.isNullOrBlank(securityClearance.getName())){
             result.addMessage("name is required", ResultType.INVALID);
         }
-        
+
         /*
         if(securityClearance.getSecurityClearanceId() <1 || securityClearance.getSecurityClearanceId() > 10){
             result.addMessage("securityClearanceId must be between 1 and 10", ResultType.INVALID);
         }
-
          */
-
 
         return result;
 

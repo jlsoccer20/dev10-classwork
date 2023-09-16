@@ -24,7 +24,6 @@ public class SecurityClearanceController {
     @GetMapping("/{securityClearanceId}")
     public SecurityClearance findById(@PathVariable int securityClearanceId){return service.findById(securityClearanceId);}
 
-    // TODO add()
     @PostMapping
     public ResponseEntity<Object> add(@RequestBody SecurityClearance securityClearance) {
         Result<SecurityClearance> result = service.add(securityClearance);
@@ -35,6 +34,12 @@ public class SecurityClearanceController {
     }
 
     // TODO update()
-
-    // TODO deleteById()
+    
+    @DeleteMapping("/{securityClearanceId}")
+    public ResponseEntity<Void> deleteById(@PathVariable int securityClearanceId) {
+        if (service.deleteById(securityClearanceId)) {
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        }
+        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    }
 }
