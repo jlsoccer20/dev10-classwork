@@ -2,6 +2,7 @@ package learn.field_agent.controllers;
 
 import learn.field_agent.domain.Result;
 import learn.field_agent.domain.SecurityClearanceService;
+import learn.field_agent.models.Agent;
 import learn.field_agent.models.SecurityClearance;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -34,7 +35,20 @@ public class SecurityClearanceController {
     }
 
     // TODO update()
-    
+    @PutMapping("/{securityClearanceId}")
+    public ResponseEntity<Object> update(@PathVariable int securityClearanceId, @RequestBody SecurityClearance securityClearance) {
+        if (securityClearanceId != securityClearance.getSecurityClearanceId()) {
+            return new ResponseEntity<>(HttpStatus.CONFLICT);
+        }
+
+        Result<SecurityClearance> result = service.update(securityClearance);
+        if (result.isSuccess()) {
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        }
+
+        return ErrorResponse.build(result);
+    }
+
     @DeleteMapping("/{securityClearanceId}")
     public ResponseEntity<Void> deleteById(@PathVariable int securityClearanceId) {
         if (service.deleteById(securityClearanceId)) {

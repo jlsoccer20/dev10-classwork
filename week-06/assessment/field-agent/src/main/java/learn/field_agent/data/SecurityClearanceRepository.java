@@ -1,5 +1,6 @@
 package learn.field_agent.data;
 
+import learn.field_agent.models.Agent;
 import learn.field_agent.models.SecurityClearance;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -12,7 +13,7 @@ public interface SecurityClearanceRepository { // see AgentRepository
 
     SecurityClearance add(SecurityClearance securityClearance);
 
-    // TODO: update();
+    boolean update(SecurityClearance securityClearance);
 
     @Transactional
     boolean deleteById(int securityClearanceId);

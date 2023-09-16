@@ -32,7 +32,24 @@ public class SecurityClearanceService {
         return result;
     }
 
-    // TODO: update()
+    public Result<SecurityClearance> update(SecurityClearance securityClearance) {
+        Result<SecurityClearance> result = validate(securityClearance);
+        if (!result.isSuccess()) {
+            return result;
+        }
+
+        if (securityClearance.getSecurityClearanceId() <= 0) {
+            result.addMessage("securityClearanceId must be set for `update` operation", ResultType.INVALID);
+            return result;
+        }
+
+        if (!repository.update(securityClearance)) {
+            String msg = String.format("securityClearanceId: %s, not found", securityClearance.getSecurityClearanceId());
+            result.addMessage(msg, ResultType.NOT_FOUND);
+        }
+
+        return result;
+    }
 
     public boolean deleteById(int securityClearanceId) {
         return repository.deleteById(securityClearanceId);
