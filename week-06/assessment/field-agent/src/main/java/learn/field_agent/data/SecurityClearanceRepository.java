@@ -9,7 +9,7 @@ public interface SecurityClearanceRepository { // see AgentRepository
 
     SecurityClearance findById(int securityClearanceId);
 
-    // TODO: add();
+    SecurityClearance add(SecurityClearance securityClearance);
 
     // TODO: update();
 
