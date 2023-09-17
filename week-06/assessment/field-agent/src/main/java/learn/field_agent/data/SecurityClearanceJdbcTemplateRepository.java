@@ -64,8 +64,8 @@ public class SecurityClearanceJdbcTemplateRepository implements SecurityClearanc
     public boolean update(SecurityClearance securityClearance){
 
         final String sql = "update security_clearance set "
-                + "name = ?, "
-                + "security_clearance_id = ?;";
+                + "name = ? "
+                + "where security_clearance_id = ?;";
 
         return jdbcTemplate.update(sql,
                 securityClearance.getName(),
