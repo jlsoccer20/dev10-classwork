@@ -1,13 +1,16 @@
 @url = http://localhost:8080/api/agent
 
+// find()
 GET {{url}} HTTP/1.1
 
 ###
 
+// find()
 GET {{url}}/2 HTTP/1.1
 
 ###
 
+// update()
 PUT {{url}}/2 HTTP/1.1
 Content-Type: application/json
 

@@ -1,0 +1,35 @@
+@url = http://localhost:8080/api/securityClearance
+
+// findAll()
+GET {{url}} HTTP/1.1
+
+###
+
+// findById()
+GET {{url}}/1 HTTP/1.1
+
+###
+
+// add()
+POST {{url}}/3 HTTP/1.1
+Content-Type: application/json
+
+{
+    "name": "Very Top Secret Cheesey Cheese"
+}
+
+
+###
+// update()
+// "securityClearanceId": 3,
+PUT {{url}}/5 HTTP/1.1
+Content-Type: application/json
+
+{
+    "securityClearanceId": 5,
+    "name": "Very Top Secret"
+}
+
+###
+
+DELETE {{url}}/4 HTTP/1.1
