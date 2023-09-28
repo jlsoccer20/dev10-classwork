@@ -1,5 +1,6 @@
-import { useState } from 'react';
-
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import About from "./About";
+import Contact from "./Contact";
 import Header from './Header';
 import SolarPanelForm from './SolarPanelForm';
 import ViewSolarPanels from './ViewSolarPanels';
@@ -20,10 +21,16 @@ function App() {
 	}
 
 	return (
-		<div className='container'>
-			<Header />
-			<main>{renderView()}</main>
-		</div>
+        <Router>
+            <Header />
+            <main>
+                <Routes>
+                    <Route path='/' element={<ViewSolarPanels />} />
+                    <Route path='/add' element={SolarPanelForm />}/>
+                
+                </Routes>
+            </main>
+        </Router>
 	);
 }
 
