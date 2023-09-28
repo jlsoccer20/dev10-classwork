@@ -1,0 +1,29 @@
+[
+	{
+		"id": 17,
+		"section": "The Ridge",
+		"row": 1,
+		"column": 1,
+		"yearInstalled": 2020,
+		"material": "POLY_SI",
+		"tracking": true
+	},
+	{
+		"id": 18,
+		"section": "The Ridge",
+		"row": 1,
+		"column": 2,
+		"yearInstalled": 2021,
+		"material": "CIGS",
+		"tracking": true
+	},
+	{
+		"id": 19,
+		"section": "Flats",
+		"row": 1,
+		"column": 1,
+		"yearInstalled": 2020,
+		"material": "CD_TE",
+		"tracking": false
+	}
+]
