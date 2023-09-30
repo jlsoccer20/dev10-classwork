@@ -15,13 +15,13 @@ const componentMap = {
 
 function App() {
 
-  // TODO: Implement React Router V6.
+  // TODO: Implement React Router V6. [DONE]
   const [view, setView] = useState("landing");
   const Component = componentMap[view];
 
-  // TODO: Add routes for update and delete.
+  // TODO: Add routes for update and delete. [DONE]
 
-  // TODO: Add a ConfirmAgentDelete component that renders with the delete route.
+  // TODO: Add a ConfirmAgentDelete component that renders with the delete route. [DONE]
   // The delete route should contain an agent id. 
   // Use that id to fetch a single agent, display their name, 
   // and then either delete or cancel. 
@@ -37,8 +37,8 @@ function App() {
                 <Route path='/' element={<Landing/>} />
                 <Route path='/agents' element={<AgentList/>} />
                 <Route path='/agents/add' element={<AgentForm/>} />
-                <Route path='/agents/edit/:id' element={<AgentForm/>} />
-                <Route path='/agents/delete/:id' element={<ConfirmAgentDelete/>} />
+                <Route path='/agents/edit/:agentId' element={<AgentForm/>} />
+                <Route path='/agents/delete/:agentId' element={<ConfirmAgentDelete/>} />
                 <Route path='*' element={"not found"} />
             </Routes>
         </Router>

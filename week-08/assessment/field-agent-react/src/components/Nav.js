@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 function Nav({ view, setView }) {
 
     function handleAdd() {
@@ -13,15 +14,15 @@ function Nav({ view, setView }) {
         <div className="d-flex align-items-center">
             <ul className="nav my-4">
                 <li className="nav-item">
-                    <a id="linkAgents" href="#" className="nav-link" onClick={handleList}>Agents</a>
+                    <Link to='/agents' className="nav-link">Agents</Link>
                 </li>
                 <li className="nav-item">
-                    <a id="linkAgencies" href="#" className="nav-link" onClick={evt => evt.preventDefault()}>Agencies</a>
+                    <Link to='/agencies' className="nav-link">Agencies</Link>
                 </li>
             </ul>
             {view !== "form" &&
                 <div className="d-flex flex-grow-1 justify-content-end">
-                    <button id="btnAdd" className="btn btn-primary" onClick={handleAdd}>Add Agent</button>
+                    <Link to='/agents/add' className="btn btn-primary">Add Agent</Link>
                 </div>}
         </div>
     );
