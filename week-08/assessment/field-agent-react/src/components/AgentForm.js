@@ -1,3 +1,4 @@
+import {Link} from "react-router-dom"; 
 import { useState } from "react";
 
 // TODO: Modify this component to support update/edit.
@@ -106,6 +107,8 @@ function AgentForm({ setView }) {
                     <button type="submit" className="btn btn-primary me-2">Save</button>
                     {/* TODO: Change this button to a React Router Link. */}
                     <button type="button" className="btn btn-warning" onClick={handleCancel}>Cancel</button>
+                    {/* <Link to={'./delete/${agent.id}'} className="btn btn-danger me-2"> Delete </Link> */}
+                    {/* <Link to={'./cancel}'} className="btn btn-warning">Cancel</Link>*/}
                 </div>
             </form>
         </>
