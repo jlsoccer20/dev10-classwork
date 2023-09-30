@@ -105,10 +105,9 @@ function AgentForm({ setView }) {
                 </div>
                 <div className="mb-3">
                     <button type="submit" className="btn btn-primary me-2">Save</button>
-                    {/* TODO: Change this button to a React Router Link. */}
-                    <button type="button" className="btn btn-warning" onClick={handleCancel}>Cancel</button>
-                    {/* <Link to={'./delete/${agent.id}'} className="btn btn-danger me-2"> Delete </Link> */}
-                    {/* <Link to={'./cancel}'} className="btn btn-warning">Cancel</Link>*/}
+                    
+                    {/* TODO: Change this button to a React Router Link. [DONE]*/}
+                    <Link to={'/agents'} className="btn btn-warning">Cancel</Link>
                 </div>
             </form>
         </>
