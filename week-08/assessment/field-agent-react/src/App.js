@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 
+import ConfirmAgentDelete from "./components/ConfirmAgentDelete";
 import AgentForm from "./components/AgentForm";
 import AgentList from "./components/AgentList";
 import Landing from "./components/Landing";
@@ -28,8 +29,19 @@ function App() {
 
   return (
     <main className="container">
-      <Nav view={view} setView={setView} />
-      <Component setView={setView} />
+        {/*<Component setView={setView} />*/}
+        <Router>
+            
+            <Nav view={view} setView={setView} />
+            <Routes>
+                <Route path='/' element={<Landing/>} />
+                <Route path='/agents' element={<AgentList/>} />
+                <Route path='/agents/add' element={<AgentForm/>} />
+                <Route path='/agents/edit/:id' element={<AgentForm/>} />
+                <Route path='/agents/delete/:id' element={<ConfirmAgentDelete/>} />
+                <Route path='*' element={"not found"} />
+            </Routes>
+        </Router>
     </main>
   );
 }
