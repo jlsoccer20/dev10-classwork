@@ -21,7 +21,7 @@ function AgentTable({ agents }) {
                         The delete link should navigate to a confirm delete component.
                         The edit link should navigate to the AgentForm and pre-populate the agent. */}
                         <td>
-                            <Link to={`./delete/${agent.agentId}`} className="btn btn-danger me-2"> Delete </Link>
+                            <Link to={`./delete/${agent.agentId}`} className="btn btn-danger me-2">Delete</Link>
                             <Link to={`./edit/${agent.agentId}`} className="btn btn-info">Edit</Link>
                         </td>
                     </tr>
