@@ -95,5 +95,3 @@ export default function ConfirmAgentDelete(){
         </div>
     );
 }
-
-//export default ConfirmAgentDelete;

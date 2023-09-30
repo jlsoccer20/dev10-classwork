@@ -22,10 +22,10 @@ function App() {
   // TODO: Add routes for update and delete. [DONE]
 
   // TODO: Add a ConfirmAgentDelete component that renders with the delete route. [DONE]
-  // The delete route should contain an agent id. 
-  // Use that id to fetch a single agent, display their name, 
-  // and then either delete or cancel. 
-  // If the agent isn't found. Redirect to the AgentList route.
+  // The delete route should contain an agent id. [DONE]
+  // Use that id to fetch a single agent, display their name, [DONE]
+  // and then either delete or cancel. [DONE]
+  // If the agent isn't found. Redirect to the AgentList route. [DONE]
 
   return (
     <main className="container">
@@ -38,7 +38,7 @@ function App() {
                 <Route path='/agents' element={<AgentList/>} />
                 <Route path='/agents/add' element={<AgentForm/>} />
                 <Route path='/agents/edit/:agentId' element={<AgentForm/>} />
-                <Route path='/agents/delete/:agentId' element={<ConfirmAgentDelete setView={setView}/>} />
+                <Route path='/agents/delete/:agentId' element={<ConfirmAgentDelete/>} />
                 <Route path='*' element={"not found"} />
             </Routes>
         </Router>
