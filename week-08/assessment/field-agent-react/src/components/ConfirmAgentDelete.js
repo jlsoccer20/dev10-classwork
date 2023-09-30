@@ -10,7 +10,7 @@ export default function ConfirmAgentDelete(){
 
     useEffect(() => {
         if (agentId) {
-            fetch('http://localhost:8080/api/agent' + agentId)
+            fetch('http://localhost:8080/api/agent/' + agentId)
             .then(res => {
                 if (res.ok){
                     return res.json();
@@ -32,7 +32,8 @@ export default function ConfirmAgentDelete(){
         const config = {
             method: 'DELETE',
         };
-        fetch('http://localhost:8080/api/agent'+ agentId, config)
+        
+        fetch('http://localhost:8080/api/agent/'+ agentId, config)
             .then(res => {
                 if (res.ok){
                     setSuccess(true);
