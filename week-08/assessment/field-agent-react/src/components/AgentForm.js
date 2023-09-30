@@ -1,5 +1,8 @@
 import {Link} from "react-router-dom"; 
-import { useState } from "react";
+import { useEffect, useState } from "react";
+
+import Button from './Button';
+import { error } from "console";
 
 // TODO: Modify this component to support update/edit.
 // An update URL should have an agent id.
@@ -16,6 +19,26 @@ function AgentForm({ setView }) {
     });
     const [errors, setErrors] = useState([]);
 
+    useEffect(() => {
+        if (agentId) {
+            fetch('http://localhost:8080/api/agents/'+ agentId)
+            .then(res => {
+                if (res.ok) {
+                    return res.json();
+                } else {
+                    return Promise.reject(
+                        new Error(`Unexpected status code ${res.status}`)
+                    );
+                }
+            })
+            .then(setAgent)
+            .catch(error => {
+                console.error(error);
+                Navigate('/agents');
+            });
+        }
+    }, [agentId]);
+
     function handleChange(evt) {
 
         setAgent(previous => {
@@ -30,34 +53,58 @@ function AgentForm({ setView }) {
     function handleSubmit(evt) {
         evt.preventDefault();
 
-        const config = {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(agent)
-        }
+        if (agentId > 0){
+            //PUT
+            const config = {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(agent),
+            };
+            fetch('http://localhost:8080/api/agent/'+ agentId, config)
+                .then(res => {
+                    if (res.ok) {
+                        Navigate('/agents');
+                    } else if (res.status === 400) {
+                        return res.json();
+                    }
+                })
+                .then(errors => {
+                    setErrors(errors);
+                })
+                .catch(console.error);
+        } else {
+            // POST
+            const config = {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(agent)
+            }
 
-        fetch("http://localhost:8080/api/agent", config)
-            .then(response => {
-                if (response.ok) {
-                    setView("list");
-                } else {
-                    return response.json();
-                }
-            })
-            .then(errs => {
-                if (errs) {
-                    return Promise.reject(errs);
-                }
-            })
-            .catch(errs => {
-                if (errs.length) {
-                    setErrors(errs);
-                } else {
-                    setErrors([errs]);
-                }
-            });
+            fetch("http://localhost:8080/api/agent", config)
+                .then(response => {
+                    if (response.ok) {
+                        setView("list");
+                    } else {
+                        return response.json();
+                    }
+                })
+                .then(errs => {
+                    if (errs) {
+                        return Promise.reject(errs);
+                    }
+                })
+                .catch(errs => {
+                    if (errs.length) {
+                        setErrors(errs);
+                    } else {
+                        setErrors([errs]);
+                    }
+                });
+        }
     }
 
     function handleCancel() {
@@ -66,7 +113,7 @@ function AgentForm({ setView }) {
 
     return (
         <>
-            <h1 className="display-6">Add an Agent</h1>
+            <h1 className="display-6"> {id > 0 ? 'Update' : 'Add'} an Agent</h1>
             {errors && errors.length > 0 && <div className="alert alert-danger">
                 <ul className="mb-0">
                     {errors.map(err => <li key={err}>{err}</li>)}
