@@ -38,7 +38,7 @@ function App() {
                 <Route path='/agents' element={<AgentList/>} />
                 <Route path='/agents/add' element={<AgentForm/>} />
                 <Route path='/agents/edit/:agentId' element={<AgentForm/>} />
-                <Route path='/agents/delete/:agentId' element={<ConfirmAgentDelete setView={setView}/>} />
+                <Route path='/agents/delete/:agentId' element={<ConfirmAgentDelete/>} />
                 <Route path='*' element={"not found"} />
             </Routes>
         </Router>
