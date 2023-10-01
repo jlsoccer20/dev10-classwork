@@ -6,7 +6,7 @@ import { useEffect, useState } from "react";
 // An update URL should have an agent id.
 // Use that id to fetch a single agent and populate it in the form.
 
-export default function AgentForm({ setView }) {
+export default function AgentForm() {
 
     const [agent, setAgent] = useState({
         firstName: "",
@@ -98,7 +98,7 @@ export default function AgentForm({ setView }) {
             fetch("http://localhost:8080/api/agent", config)
                 .then(response => {
                     if (response.ok) {
-                        setView("list");
+                        //setView("list");
                     } else {
                         return response.json();
                     }
@@ -118,7 +118,7 @@ export default function AgentForm({ setView }) {
     }
 
     function handleCancel() {
-        setView("list");
+        //setView("list");
     }
 
     return (

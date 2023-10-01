@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom";
 
-function Nav({ view, setView }) {
-
+//function Nav({ view, setView }) {
+function Nav() {
+    /*
     function handleAdd() {
         setView("form");
     }
@@ -10,6 +11,10 @@ function Nav({ view, setView }) {
         evt.preventDefault();
         setView("list");
     }
+    
+    {view !== "form" &&
+}
+    */
 
     return (
         <div className="d-flex align-items-center">
@@ -21,10 +26,10 @@ function Nav({ view, setView }) {
                     <Link to='/agencies' className="nav-link">Agencies</Link>
                 </li>
             </ul>
-            {view !== "form" &&
+            
                 <div className="d-flex flex-grow-1 justify-content-end">
                     <Link to='/agents/add' className="btn btn-primary">Add Agent</Link>
-                </div>}
+                </div>
         </div>
     );
 }
