@@ -1,4 +1,4 @@
-import {Link, useNavigate, useParams} from "react-router-dom"; 
+import { Link, useNavigate, useParams } from "react-router-dom"; 
 import { useEffect, useState } from "react";
 
 
@@ -30,7 +30,8 @@ export default function AgentForm() {
 
     useEffect(() => {
         if (agentId) {
-            fetch('http://localhost:8080/api/agents/'+ agentId)
+            console.log("useEffect: " + agentId)
+            fetch('http://localhost:8080/api/agent/'+ agentId)
             .then(res => {
                 if (res.ok) {
                     return res.json();
@@ -45,6 +46,7 @@ export default function AgentForm() {
                 console.error(error);
                 navigate('/agents');
             });
+            
         }
 
     }, [agentId]);
@@ -62,10 +64,10 @@ export default function AgentForm() {
     function handleSubmit(evt) {
         evt.preventDefault();
 
-        /*
+        
         if (agentId > 0){
             //PUT (UPDATE)
-            /*const config = {
+            const config = {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
@@ -86,16 +88,16 @@ export default function AgentForm() {
                 .catch(console.error);
                 
         } else {
-            */
+           // POST (ADD)
             const config = {
-                method: "POST",
+                method: 'POST',
                 headers: {
-                    "Content-Type": "application/json"
+                    'Content-Type': 'application/json'
                 },
                 body: JSON.stringify(agent)
             }
 
-            fetch("http://localhost:8080/api/agent", config)
+            fetch('http://localhost:8080/api/agent', config)
                 .then(response => {
                     if (response.ok) {
                         navigate('/agents');
@@ -116,15 +118,16 @@ export default function AgentForm() {
                         setErrors([errs]);
                     }
                 });
+        }
     }
 
     function handleCancel() {
         //setView("list");
     }
-
+    //<h1 className="display-6">Add an Agent</h1>
     return (
         <>
-            <h1 className="display-6">Add an Agent</h1>
+            <h1> {agentId > 0 ? 'Edit' : 'Add'} an Agent</h1>
             {errors && errors.length > 0 && <div className="alert alert-danger">
                 <ul className="mb-0">
                     {errors.map(err => <li key={err}>{err}</li>)}
