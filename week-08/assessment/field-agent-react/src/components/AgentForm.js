@@ -98,6 +98,7 @@ export default function AgentForm() {
             fetch("http://localhost:8080/api/agent", config)
                 .then(response => {
                     if (response.ok) {
+                        navigate('/agents');
                         //setView("list");
                     } else {
                         return response.json();
