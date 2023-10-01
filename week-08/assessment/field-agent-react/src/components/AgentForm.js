@@ -77,6 +77,7 @@ export default function AgentForm() {
             fetch('http://localhost:8080/api/agent/'+ agentId, config)
                 .then(res => {
                     if (res.ok) {
+                        window.alert("Agent Updated")
                         navigate('/agents');
                     } else if (res.status === 400) {
                         return res.json();
@@ -101,7 +102,6 @@ export default function AgentForm() {
                 .then(response => {
                     if (response.ok) {
                         navigate('/agents');
-                        //setView("list");
                     } else {
                         return response.json();
                     }
@@ -121,10 +121,12 @@ export default function AgentForm() {
         }
     }
 
+    /*
     function handleCancel() {
         //setView("list");
     }
-    //<h1 className="display-6">Add an Agent</h1>
+    */
+
     return (
         <>
             <h1> {agentId > 0 ? 'Edit' : 'Add'} an Agent</h1>
