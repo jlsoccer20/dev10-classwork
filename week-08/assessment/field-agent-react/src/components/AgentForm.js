@@ -1,8 +1,8 @@
-import {Link} from "react-router-dom"; 
+import {Link, useNavigate, useParams} from "react-router-dom"; 
 import { useEffect, useState } from "react";
 
 import Button from './Button';
-import { error } from "console";
+import { error } from 'console';
 
 // TODO: Modify this component to support update/edit.
 // An update URL should have an agent id.
@@ -11,6 +11,9 @@ import { error } from "console";
 function AgentForm({ setView }) {
 
     const [agent, setAgent] = useState({
+        //Jessica
+        //agentId: "",
+
         firstName: "",
         middleName: "",
         lastName: "",
@@ -19,6 +22,17 @@ function AgentForm({ setView }) {
     });
     const [errors, setErrors] = useState([]);
 
+    //Jessica
+    const { agentId } = useParams();
+    const navigate = useNavigate();
+
+    //Jessica
+    /*
+    useEffect(() => {
+
+    }, [agentId]);
+    */
+    
     useEffect(() => {
         if (agentId) {
             fetch('http://localhost:8080/api/agents/'+ agentId)
@@ -34,10 +48,11 @@ function AgentForm({ setView }) {
             .then(setAgent)
             .catch(error => {
                 console.error(error);
-                Navigate('/agents');
+                navigate('/agents');
             });
         }
     }, [agentId]);
+    
 
     function handleChange(evt) {
 
@@ -53,8 +68,9 @@ function AgentForm({ setView }) {
     function handleSubmit(evt) {
         evt.preventDefault();
 
+        
         if (agentId > 0){
-            //PUT
+            //PUT (UPDATE)
             const config = {
                 method: 'PUT',
                 headers: {
@@ -65,7 +81,7 @@ function AgentForm({ setView }) {
             fetch('http://localhost:8080/api/agent/'+ agentId, config)
                 .then(res => {
                     if (res.ok) {
-                        Navigate('/agents');
+                        navigate('/agents');
                     } else if (res.status === 400) {
                         return res.json();
                     }
@@ -75,7 +91,8 @@ function AgentForm({ setView }) {
                 })
                 .catch(console.error);
         } else {
-            // POST
+            
+            // POST (ADD)
             const config = {
                 method: "POST",
                 headers: {
@@ -111,9 +128,11 @@ function AgentForm({ setView }) {
         setView("list");
     }
 
+    // // <h1> {agentId > 0 ? 'Update' : 'Add'} an Agent</h1>
     return (
         <>
-            <h1 className="display-6"> {id > 0 ? 'Update' : 'Add'} an Agent</h1>
+            <h1 className="display-6"> Add an Agent</h1>
+            
             {errors && errors.length > 0 && <div className="alert alert-danger">
                 <ul className="mb-0">
                     {errors.map(err => <li key={err}>{err}</li>)}
