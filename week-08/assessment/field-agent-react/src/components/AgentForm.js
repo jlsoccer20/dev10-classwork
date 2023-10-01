@@ -2,9 +2,9 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 
 
-// TODO: Modify this component to support update/edit.
-// An update URL should have an agent id.
-// Use that id to fetch a single agent and populate it in the form.
+// TODO: Modify this component to support update/edit. [DONE]
+// An update URL should have an agent id. [DONE]
+// Use that id to fetch a single agent and populate it in the form. [DONE]
 
 export default function AgentForm() {
 
@@ -60,13 +60,13 @@ export default function AgentForm() {
         });
     }
 
-    // TODO: Modify this function to support update as well as add/create.
+    // TODO: Modify this function to support update as well as add/create. [DONE]
     function handleSubmit(evt) {
         evt.preventDefault();
 
         
         if (agentId > 0){
-            //PUT (UPDATE)
+            //PUT (Edit Agent)
             const config = {
                 method: 'PUT',
                 headers: {
@@ -77,7 +77,9 @@ export default function AgentForm() {
             fetch('http://localhost:8080/api/agent/'+ agentId, config)
                 .then(res => {
                     if (res.ok) {
+                        // Testing how to use a popup window, this can be removed if desired
                         window.alert("Agent Updated")
+
                         navigate('/agents');
                     } else if (res.status === 400) {
                         return res.json();
@@ -89,7 +91,7 @@ export default function AgentForm() {
                 .catch(console.error);
                 
         } else {
-           // POST (ADD)
+           // POST (Add Agent)
             const config = {
                 method: 'POST',
                 headers: {
@@ -122,6 +124,9 @@ export default function AgentForm() {
     }
 
     /*
+    //Commented out this code because it seems like an empty function after removing setView. 
+    // Keeping the code for now for quick reference
+
     function handleCancel() {
         //setView("list");
     }

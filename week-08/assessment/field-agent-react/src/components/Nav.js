@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 
-//function Nav({ view, setView }) {
+// Saving deleted code, for reference if need to put it back later
+// function Nav({ view, setView }) {
 function Nav() {
     /*
     function handleAdd() {
