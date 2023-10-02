@@ -1,10 +1,12 @@
-import { useState } from "react";
+import { Link, useNavigate, useParams } from "react-router-dom"; 
+import { useEffect, useState } from "react";
 
-// TODO: Modify this component to support update/edit.
-// An update URL should have an agent id.
-// Use that id to fetch a single agent and populate it in the form.
 
-function AgentForm({ setView }) {
+// TODO: Modify this component to support update/edit. [DONE]
+// An update URL should have an agent id. [DONE]
+// Use that id to fetch a single agent and populate it in the form. [DONE]
+
+export default function AgentForm() {
 
     const [agent, setAgent] = useState({
         firstName: "",
@@ -14,6 +16,8 @@ function AgentForm({ setView }) {
         heightInInches: ""
     });
     const [errors, setErrors] = useState([]);
+    const { agentId } = useParams();
+    const navigate = useNavigate();
 
     function handleChange(evt) {
 
@@ -22,50 +26,115 @@ function AgentForm({ setView }) {
             next[evt.target.name] = evt.target.value;
             return next;
         });
-
     }
 
-    // TODO: Modify this function to support update as well as add/create.
+    useEffect(() => {
+        if (agentId) {
+            console.log("useEffect: " + agentId)
+            fetch('http://localhost:8080/api/agent/'+ agentId)
+            .then(res => {
+                if (res.ok) {
+                    return res.json();
+                } else {
+                    return Promise.reject(
+                        new Error(`Unexpected status code ${res.status}`)
+                    );
+                }
+            })
+            .then(setAgent)
+            .catch(error => {
+                console.error(error);
+                navigate('/agents');
+            });
+            
+        }
+
+    }, [agentId]);
+
+    function handleChange(evt) {
+
+        setAgent(previous => {
+            const next = { ...previous };
+            next[evt.target.name] = evt.target.value;
+            return next;
+        });
+    }
+
+    // TODO: Modify this function to support update as well as add/create. [DONE]
     function handleSubmit(evt) {
         evt.preventDefault();
 
-        const config = {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(agent)
-        }
+        
+        if (agentId > 0){
+            //PUT (Edit Agent)
+            const config = {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(agent),
+            };
+            fetch('http://localhost:8080/api/agent/'+ agentId, config)
+                .then(res => {
+                    if (res.ok) {
+                        // Testing how to use a popup window, this can be removed if desired
+                        window.alert("Agent Updated")
 
-        fetch("http://localhost:8080/api/agent", config)
-            .then(response => {
-                if (response.ok) {
-                    setView("list");
-                } else {
-                    return response.json();
-                }
-            })
-            .then(errs => {
-                if (errs) {
-                    return Promise.reject(errs);
-                }
-            })
-            .catch(errs => {
-                if (errs.length) {
-                    setErrors(errs);
-                } else {
-                    setErrors([errs]);
-                }
-            });
+                        navigate('/agents');
+                    } else if (res.status === 400) {
+                        return res.json();
+                    }
+                })
+                .then(errors => {
+                    setErrors(errors);
+                })
+                .catch(console.error);
+                
+        } else {
+           // POST (Add Agent)
+            const config = {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(agent)
+            }
+
+            fetch('http://localhost:8080/api/agent', config)
+                .then(response => {
+                    if (response.ok) {
+                        navigate('/agents');
+                    } else {
+                        return response.json();
+                    }
+                })
+                .then(errs => {
+                    if (errs) {
+                        return Promise.reject(errs);
+                    }
+                })
+                .catch(errs => {
+                    if (errs.length) {
+                        setErrors(errs);
+                    } else {
+                        setErrors([errs]);
+                    }
+                });
+        }
     }
+
+    /*
+    //Commented out this code because it seems like an empty function after removing setView. 
+    // Keeping the code for now for quick reference
 
     function handleCancel() {
-        setView("list");
+        //setView("list");
     }
+    */
 
     return (
         <>
-            <h1 className="display-6">Add an Agent</h1>
+            <h1> {agentId > 0 ? 'Edit' : 'Add'} an Agent</h1>
             {errors && errors.length > 0 && <div className="alert alert-danger">
                 <ul className="mb-0">
                     {errors.map(err => <li key={err}>{err}</li>)}
@@ -104,12 +173,10 @@ function AgentForm({ setView }) {
                 </div>
                 <div className="mb-3">
                     <button type="submit" className="btn btn-primary me-2">Save</button>
-                    {/* TODO: Change this button to a React Router Link. */}
-                    <button type="button" className="btn btn-warning" onClick={handleCancel}>Cancel</button>
+                    {/* TODO: Change this button to a React Router Link. [DONE]*/}
+                    <Link to={'/agents'} className="btn btn-warning">Cancel</Link>
                 </div>
             </form>
         </>
     );
 }
-
-export default AgentForm;
