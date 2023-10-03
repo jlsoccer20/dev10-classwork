@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 function AgentTable({ agents }) {
     return (
         <table className="table table-striped">
@@ -15,12 +17,13 @@ function AgentTable({ agents }) {
                         <td>{agent.firstName}{agent.middleName ? " " + agent.middleName : ""} {agent.lastName}</td>
                         <td>{agent.dob}</td>
                         <td>{agent.heightInInches}</td>
-                        {/* TODO: Replace buttons with React Router Links (and style appropriately).
-                        The delete link should navigate to a confirm delete component.
-                        The edit link should navigate to the AgentForm and pre-populate the agent. */}
+                        {/* Replace buttons with React Router Links (and style appropriately). [DONE]
+                        The delete link should navigate to a confirm delete component. [DONE]
+
+                        TODO: The edit link should navigate to the AgentForm and pre-populate the agent. */}
                         <td>
-                            <button type="button" className="btn btn-danger me-2" onClick={() => alert('implement delete!')}>Delete</button>
-                            <button type="button" className="btn btn-info" onClick={() => alert('implement update!')}>Edit</button>
+                            <Link to={`./delete/${agent.agentId}`} className="btn btn-danger me-2">Delete</Link>
+                            <Link to={`./edit/${agent.agentId}`} className="btn btn-info">Edit</Link>
                         </td>
                     </tr>
                 ))}
