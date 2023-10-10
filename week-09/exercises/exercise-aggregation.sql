@@ -89,6 +89,16 @@ group by customer.city
 order by count(*) desc
 limit 10;
 
+select
+	c.customer_id,
+	c.city,
+    count(*)
+from project p
+inner join customer c on p.customer_id = c.customer_id
+group by c.customer_id, c.city;
+
+select count(*) from project; -- 1121 count
+
 
 -- Which postal_code has the most projects?
 -- Expected: M3H
